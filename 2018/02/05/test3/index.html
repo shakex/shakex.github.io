@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Backpropagation for a Linear Layer (test) · Shake and Shake's Vision</title><meta name="description" content="written by Justin Johnson"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://xiekai.site/atom.xml" title="Shake and Shake's Vision"></head><body><div class="wrap"><header><a href="/" class="logo-link">SHAKE & SHAKE'S VISION </a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ME</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Backpropagation for a Linear Layer (test)</h1><div class="post-info">Feb 5, 2018</div><div class="post-content"><p>In these notes we will explicitly derive the equations to use when backpropagating through a linear layer, using minibatches.</p>
+<p>During the forward pass, the linear layer takes an input $X$ of shape $N × D$ and a weight matrix $W$ of shape $D × M$, and computes an output $Y = XW$ of shape $N × M$ by computing the matrix product of the two inputs. To make things even more concrete, we will consider the case $N = 2, D = 2, M = 3$.</p>
+<p>We can then write out the forward pass in terms of the elements of the inputs:</p>
+<h3 id="KKT-Conditions"><a href="#KKT-Conditions" class="headerlink" title="KKT Conditions"></a>KKT Conditions</h3><p>$x$ is global solution of the CP problem</p>
+<script type="math/tex; mode=display">min \ f(x) \\
+s.t. a_i(x)=0,\ for i=1,...,b \\
+c_j(x) \leq 0,\ for j=1,...,q</script><p>$iff.$<br>$(i)  a_i(x)=0 \quad for i=1,…,p$<br>$(ii)  a_j(x) \leq 0 \quad for j=1,…,q$<br>$(iii)  \nabla f(x)+\sum_{i=1}^{p}\lambda_i\nabla a_i(x)+\sum_{j=1}^{q}\mu_j\nabla c_j(x)=0$<br>$(iv)  \mu_j c_j(x)=0 \quad for j=1,…,q$<br>$(v)  \mu_j \geq 0 \quad for j=1,…,q$</p>
+<h2 id="Q-k-means-clustering"><a href="#Q-k-means-clustering" class="headerlink" title="Q: k-means clustering"></a>Q: k-means clustering</h2><h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><ul>
+<li>$D=\{x_1,x_2,…,x_N\}, x_n\in R^d$</li>
+<li>聚类簇数：$K$</li>
+</ul>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ul>
+<li>定义 $\mu_k$: 第$k$类的聚类中心，$k=1,…,K$</li>
+<li>定义 $r_{nk}\in\{0,1\}$: 数据点$x_n$属于$K$个聚类中的哪一个 </li>
+<li>目标函数：$J=\sum_{n=1}^{N}\sum_{k=1}^{K} r_{nk} ||x_n-\mu_k||^2$，目标：找到$\{r_{nk}\}$和$\{\mu_k\}$的值，使得$J$达到最小值</li>
+<li>迭代<ul>
+<li>E Step: 关于$\{r_{nk}\}$最小化$J$，保持$\{\mu_k\}$固定<br>对每个$n$分别进行最优化，只要$k$的值使$||x_n-\mu_k||^2$最小，就令$\{r_{nk}\}$等于1，即<script type="math/tex; mode=display">r_{nk}=\begin{cases} 1& if\quad k=argmin_j||x_n-\mu_k||^2\\0& otherwise \end{cases}</script></li>
+<li>M Step: 关于$\{\mu_k\}$最小化$J$，保持$\{r_{nk}\}$固定<br>对每个$\mu_k, l\in\{1,2,…,K\}$进行最优化<script type="math/tex; mode=display">\begin{aligned} \nabla_{\mu_k}J &= \sum_{n=1}^{N}\sum_{k=1}^{K}r_{nk}\nabla_{\mu_k} ||x_n-\mu_k||^2 \\
+&=\sum_{n=1}^{N}r_{nk}\nabla_{\mu_k} ||x_n-\mu_k||^2 \\
+&=2\sum_{n=1}^{N}r_{nk}(\mu_k-x_n)=0  \end{aligned}\\
+\Rightarrow \mu_k=\frac{\sum_{n=1}^{N}r_{nk}x_n}{\sum_{n=1}^{N}r_{nk}}</script>即令$\mu_k$等于类别k的所有数据点的均值</li>
+<li>直到所有均值向量均为更新（或设置最大运行轮数/最小调整幅度）</li>
+</ul>
+</li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/2018/02/05/test2/" class="next">NEXT</a></div><div id="container"></div><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var gitment = new Gitment({
+    id: 'location.href', // 可选。默认为 location.href
+    owner: '{{owner}}',
+    repo: '{{repo}}',
+    client_id: '{{client_id}}',
+    client_secret: '{{client_secret}}'
+})
+gitment.render('container')</script><div class="copyright"><p>© 2018 <a href="http://xiekai.site">Shake</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and modified from <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script type="text/x-mathjax-config">MathJax.Hub.Config({
+showProcessingMessages: false, //关闭js加载过程信息
+messageStyle: "none", //不显示信息
+extensions: ["tex2jax.js"],
+jax: ["input/TeX", "output/HTML-CSS"],
+tex2jax: {
+inlineMath:  [ ["$", "$"] ], //行内公式选择$
+displayMath: [ ["$$","$$"] ], //段内公式选择$$
+skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'], //避开某些标签
+ignoreClass:"comment-content" //避开含该Class的标签
+},
+"HTML-CSS": {
+availableFonts: ["STIX","TeX"], //可选字体
+showMathMenu: false //关闭右击菜单显示
+}
+});
+MathJax.Hub.Queue(["Typeset",MathJax.Hub]);</script><script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><link href="http://fonts.font.im/css?family=Amatic+SC:700" rel="stylesheet" type="text/css"><link href='http://fonts.font.im/css?family=Merriweather' rel='stylesheet' type='text/css'></body></html>
