@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xiekai.site/2018/02/06/test3-1/</loc>
+    
+    <lastmod>2018-02-06T13:40:14.357Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xiekai.site/about/index.html</loc>
+    
+    <lastmod>2018-02-05T16:40:20.749Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xiekai.site/2018/01/31/test/</loc>
     
-    <lastmod>2018-02-05T10:23:38.000Z</lastmod>
+    <lastmod>2018-02-05T14:30:30.511Z</lastmod>
     
   </url>
   
@@ -30,13 +44,6 @@
   </url>
   
   <url>
-    <loc>http://xiekai.site/about/index.html</loc>
-    
-    <lastmod>2018-02-03T14:03:52.177Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://xiekai.site/shake/index.html</loc>
     
     <lastmod>2018-02-03T10:00:36.673Z</lastmod>
@@ -47,6 +54,13 @@
     <loc>http://xiekai.site/vision/index.html</loc>
     
     <lastmod>2018-02-03T10:00:30.575Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xiekai.site/about/index.html</loc>
+    
+    <lastmod>2017-09-12T15:29:17.000Z</lastmod>
     
   </url>
   

@@ -51,6 +51,7 @@ dfn{
 h1{
     font-size:2em;
     margin:0.67em 0;
+    text-align: center;
 }
 
 mark{
@@ -203,7 +204,7 @@ body{
     line-height:1.6;
     text-align:justify;
     background-color:#fff;
-    font-family: Helvetica, Arial, sans-serif
+    font-family: 'Georgia', Arial, sans-serif
 }
 
 ul.nav,ul.post-list{
@@ -233,9 +234,9 @@ a.post-title-link:hover{
 a.logo-link:hover{
     text-decoration: none;
     /* color: #D02E26; */
-    color: white;
+    /* color: white;
     background-color: black;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 
@@ -292,14 +293,14 @@ header .logo-link{
     text-align: center;
     letter-spacing: 2px;
     display: block;
-    font-size: 3rem;
+    /* font-size: 3rem;
     font-family: 'Amatic SC', cursive;
     border-radius: 5px;
     margin: 0 100px;
     color: white;
     background-color: #0f2540;
-    transition: box-shadow 0.5s, background-color 0.5s;
-    -webkit-transition: box-shadow 0.5s, background-color 0.5s; /* Safari */
+    transition: box-shadow 0.5s, background-color 0.5s; */
+    /* -webkit-transition: box-shadow 0.5s, background-color 0.5s; Safari */
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
@@ -366,7 +367,8 @@ header .nav-list-item a{
     display:block;
     margin-left:125px;
     color:#2a7ae2;
-    word-break: normal
+    word-break: keep-all;
+    text-align: left
 }
 
 .archive .post-title-link:hover{
@@ -426,11 +428,23 @@ header .nav-list-item a{
     font-weight:bold
 } */
 
-.post-content h4:before,.post-content h5:before,.post-content h6:before{
-    content:""
+.post-content h5:before,.post-content h6:before{
+    content:"# ";
+    color:rgb(0, 84, 95);
+    /* position:absolute;
+    left:-0.7em;
+    top:-4px; */
+    font-size:1.3em;
+    font-weight:bold
 }
 
-.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6{
+.post-content h1{
+    line-height: 1;
+    font-weight: normal;
+    margin: 60px 0 40px
+}
+
+.post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6{
     line-height: 1;
     font-weight: 300;
     margin: 40px 0 20px
@@ -486,7 +500,8 @@ header .nav-list-item a{
 }
 
 .post-content>table,.post-content>figure.highlight{
-    box-shadow:0 1px 2px rgba(0,0,0,0.125)
+    /* box-shadow:0 1px 2px rgba(0,0,0,0.125) */
+
 }
 
 .post-content .tip{
@@ -534,17 +549,26 @@ header .nav-list-item a{
     max-width:95%
 }
 
-code,pre{
+code{
     font-size:0.95em;
-    background-color:rgb(248, 246, 238);
-    /* border: 1px solid rgb(221, 203, 153); */
+    background-color:rgb(238, 238, 254);
+    border: 1px solid rgb(213, 213, 232);
+    border-radius: 3px;
+    font-family: monospace
+}
+
+pre{
+    font-size:0.95em;
+    background-color:rgb(238, 238, 254);
+    border-radius: 3px;
     font-family: monospace
 }
 
 .highlight{
     position:relative;
     margin:1em 0;
-    border-radius:4px;
+    border-radius: 3px;
+    border: 1px solid rgb(213, 213, 232);
     line-height:1.1em;
     background-color:#f8f8f8;
     overflow-x:auto
@@ -567,6 +591,7 @@ code,pre{
     margin:0
 }
 
+
 .highlight .code pre .line{
     width:auto;
     height:18px
@@ -577,9 +602,10 @@ code,pre{
     top:0;
     right:0;
     /* color:#d5d5e9; */
-    color:rgb(221, 203, 153);
+    color:rgb(213, 213, 232);
     text-align:right;
     font-size:0.75em;
+    font-family: sans-serif;
     padding:8px 10px 0;
     line-height:15px;
     height:15px;
@@ -738,23 +764,30 @@ main.container{
     margin:2em 10px
 }
 
-@media screen and (min-width: 700px){
+@media screen and (min-width: 850px){
     .wrap{
         width:830px;
-        margin:0 auto
+        margin: 0 auto
     }
     header{
         padding: 100px 100px 0 100px
     }
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 850px){
     .wrap{
-        width:100%
+        width: auto;
+        margin: 0 80px
     }
+
     header{
         padding:20px 0
     }
+
+    header .logo-link img{
+        height: 80px
+    }
+
     header a.logo-link,header ul.nav.nav-list{
         float:none;
         display:block;
@@ -767,14 +800,99 @@ main.container{
         margin-top:0
     }
     .archive .post-item{
-        padding-left:20px
+        padding-left: 0
     }
     .post-content h2,.post-content h3,.post-content h4,.post-content h5,.post-content h6{
-        max-width:300px;
-        left:15px
+        /* max-width:300px; */
+        left:0;
     }
     .ds-thread,#disqus_thread{
         margin:2em 10px
+    }
+    .post-block .post-title {
+        font-size: 1.3em;
+    }
+    .post-block .post-info{
+        margin: 1em 0;
+    }
+    h1{
+        font-size: 1.8em;
+    }
+    .post-content h2{
+        font-size: 22px;
+    }
+    .post-content h3{
+        font-size: 18px;
+    }
+    .post-content h4,.post-content h5,.post-content h6{
+        font-size: 14px;
+    }
+    body{
+        font-size: 14px;
+    }
+    pre{
+        font-size: 0.8em;
+    }
+    .highlight.html .code:after,.highlight.js .code:after,.highlight.bash .code:after,.highlight.css .code:after,.highlight.scss .code:after,.highlight.diff .code:after,.highlight.java .code:after,.highlight.xml .code:after,.highlight.python .code:after,.highlight.json .code:after,.highlight.swift .code:after,.highlight.ruby .code:after,.highlight.perl .code:after,.highlight.php .code:after,.highlight.c .code:after,.highlight.cpp .code:after,.highlight.ts .code:after{
+        font-size: 0.65em;
+        font-family: sans-serif;
+        padding: 4px 8px 0;
+    }
+
+@media screen and (max-width: 500px){
+    .wrap{
+        width: auto;
+        margin: 0 15px
+    }
+
+    header{
+        padding: 20px 0
+    }
+
+    header .logo-link img{
+        height: 60px
+    }
+
+    .post-block .post-title {
+        font-size: 1.2em;
+    }
+    .post-block .post-info{
+        margin: 1em 0;
+    }
+    h1{
+        font-size: 1.6em;
+    }
+    .post-content h2{
+        font-size: 18px;
+    }
+    .post-content h3{
+        font-size: 16px;
+    }
+    .post-content h4,.post-content h5,.post-content h6{
+        font-size: 14px;
+    }
+    body{
+        font-size: 14px;
+        word-break: break-all;
+        hyphens: auto
+    }
+    pre{
+        font-size: 0.8em;
+    }
+    .archive .post-item{
+        font-size: 0.8rem;
+    }
+    .archive .post-time,.archive .post-title-link{
+        font-size: 0.8rem
+    }
+    .archive .post-title-link{
+        margin-left: 100px;
+    }
+    .archive .post-info{
+        width: 100px;
+    }
+    h2.archive-year{
+        text-align: center;
     }
 }
 
@@ -798,12 +916,12 @@ footer .copyright a:hover{
     color:#888
 }
 
-@font-face{
+/* @font-face{
     font-family:'sourcesanspro';
     src:url("../font/sourcesanspro.woff2") format("woff2"),url("../font/sourcesanspro.woff") format("woff");
     font-weight:normal;
     font-style:normal
-}
+} */
 
 .MathJax_Display{overflow-x:auto;overflow-y:hidden;}
 .MathJax{outline:0;}
