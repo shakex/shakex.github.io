@@ -838,6 +838,7 @@ main.container{
         font-family: sans-serif;
         padding: 4px 8px 0;
     }
+}
 
 @media screen and (max-width: 500px){
     .wrap{
@@ -923,5 +924,11 @@ footer .copyright a:hover{
     font-style:normal
 }
 
-.MathJax_Display{overflow-x:auto;overflow-y:hidden;}
-.MathJax{outline:0;}
+.MathJax_Display{
+    overflow-x:auto;
+    overflow-y:hidden;
+}
+
+.MathJax{
+    outline:0;
+}
