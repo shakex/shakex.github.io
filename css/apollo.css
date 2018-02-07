@@ -218,8 +218,12 @@ ul{
 }
 
 a,a:active{
-    color:#000000;
+    color:#2a7ae2;
     text-decoration:none
+}
+
+a:visited{
+    color:#205caa
 }
 
 a.nav-list-link.active,a.nav-list-link:hover{
@@ -781,7 +785,8 @@ main.container{
     }
 
     header{
-        padding:20px 0
+        padding:20px 0;
+        padding-top: 60px;
     }
 
     header .logo-link img{
@@ -844,10 +849,6 @@ main.container{
     .wrap{
         width: auto;
         margin: 0 15px
-    }
-
-    header{
-        padding: 20px 0
     }
 
     header .logo-link img{
