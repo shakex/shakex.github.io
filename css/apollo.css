@@ -100,7 +100,7 @@ pre{
 }
 
 code,kbd,pre,samp{
-    font-family:'Roboto', sans-serif;
+    font-family:'Roboto', monospace, 'Consolas';
     font-size:1em
 }
 
@@ -369,7 +369,7 @@ header .nav-list-item a{
 
 .archive .post-title-link{
     display:block;
-    margin-left:125px;
+    margin-left:150px;
     color:#2a7ae2;
     word-break: keep-all;
     text-align: left
@@ -383,7 +383,7 @@ header .nav-list-item a{
 
 .archive .post-info{
     float:left;
-    width:125px;
+    width:150px;
     color:#7f8c8d
 }
 
@@ -558,14 +558,14 @@ code{
     background-color:rgb(238, 238, 254);
     border: 1px solid rgb(213, 213, 232);
     border-radius: 3px;
-    font-family: monospace
+    font-family: 'Roboto', monospace, 'Consolas';
 }
 
 pre{
     font-size:0.95em;
     background-color:rgb(238, 238, 254);
     border-radius: 3px;
-    font-family: monospace
+    font-family: monospace, 'Consolas'
 }
 
 .highlight{

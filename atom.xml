@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiekai.site/"/>
-  <updated>2018-02-06T13:40:14.357Z</updated>
+  <updated>2018-02-05T06:18:37.166Z</updated>
   <id>http://xiekai.site/</id>
   
   <author>
@@ -15,103 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>test4</title>
-    <link href="http://xiekai.site/2018/02/06/test3-1/"/>
-    <id>http://xiekai.site/2018/02/06/test3-1/</id>
-    <published>2018-02-06T06:22:26.000Z</published>
-    <updated>2018-02-06T13:40:14.357Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="This-is-a-h1-title"><a href="#This-is-a-h1-title" class="headerlink" title="This is a h1 title"></a>This is a h1 title</h1><h2 id="This-is-a-h2-title"><a href="#This-is-a-h2-title" class="headerlink" title="This is a h2 title"></a>This is a h2 title</h2><h3 id="This-is-a-h3-title"><a href="#This-is-a-h3-title" class="headerlink" title="This is a h3 title"></a>This is a h3 title</h3><h4 id="This-is-a-h4-title"><a href="#This-is-a-h4-title" class="headerlink" title="This is a h4 title"></a>This is a h4 title</h4><h5 id="This-is-a-h5-title"><a href="#This-is-a-h5-title" class="headerlink" title="This is a h5 title"></a>This is a h5 title</h5><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h2 id="Image-Classification"><a href="#Image-Classification" class="headerlink" title="Image Classification"></a>Image Classification</h2><p><strong>Paragraph</strong> In this section we will introduce the Image Classification problem, which is the task of assigning an input image one label from a fixed set of categories. This is one of the core problems in Computer Vision that, despite its simplicity, has a large variety of practical applications. Moreover, as we will see later in the course, many other seemingly distinct Computer Vision tasks (such as object detection, segmentation) can be reduced to image classification.</p><ul><li>A single instance of an object can be oriented in many ways with respect to the camera.</li><li>Many objects of interest are not rigid bodies and can be deformed in extreme ways.</li><li>The objects of interest can be occluded. Sometimes only a small portion of an object (as little as few pixels) could be visible.</li><li>The effects of illumination are drastic on the pixel level.<ul><li>Background clutter</li><li>Intra-class variation</li></ul><ol><li>Our input consists of a set of N images, each labeled with one of K different classes. We refer to this data as the training set.</li><li>Our task is to use the training set to learn what every one of the classes looks like. We refer to this step as training a classifier, or learning a model.</li></ol></li></ul><h2 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h2><p>You are probably familiar with the concept of a derivative in the scalar case: given a function $f : \mathbb{R} \rightarrow \mathbb{R}$, the derivative of f at a point $x ∈ \mathbb{R}$ is defined as:</p><script type="math/tex; mode=display">y(x,w)=w_0+\sum_{j=1}^{M-1}w_j \phi_j(x) \tag{1-1}</script><p>Derivatives are a way to measure change. In the scalar case, the derivative of the function $f$ at the point $x$ tells us how much the function $f$ changes as the input $x$ changes by a small amount $\varepsilon$:</p><script type="math/tex; mode=display">y(x,w)=\sum_{j=0}^{M-1}w_j \phi_j(x)=w^T\phi(x) \tag{1-2}</script><p>For ease of notation we will commonly assign a name to the output of $f$, say $y = f(x)$, and write $\frac{\partial{y}}{\partial{x}}$ for the derivative of $y$ with respect to $x$. This $\partial{x}$ notation emphasizes that $\frac{\partial{y}}{\partial{x}}$ is the <em>rate of change</em> between the variables $x$ and $y$; Concretely if $x$ were to change by $\varepsilon$ then $y$ will change by approximately $\varepsilon \frac{\partial{y}}{\partial{x}}$. We can write this relationship as</p><script type="math/tex; mode=display">\frac{\partial{z}}{\partial{x}}=\frac{\partial{z}}{\partial{y}}\frac{\partial{y}}{\partial{x}} \tag{1-3}</script><h2 id="中文与公式"><a href="#中文与公式" class="headerlink" title="中文与公式"></a>中文与公式</h2><p>过拟合是指学习时选择的模型所包含的参数过多，导致对已知数据预测得很好，但对未知数据预测很差的现象。即所得的假设函数拥有较低的训练误差，但有较高的泛化误差。导致过拟合的主要影响因素有：模型的复杂度、训练数据的噪声、数据规模。过拟合无法彻底避免，只能减小其风险。</p><p>最大似然估计就是用似然函数取到最大值时的参数值作为估计值，似然函数可以写做：</p><script type="math/tex; mode=display">L(\theta)=p(X | \theta)=\prod_{i=n}^N p(x_n | \theta) \tag{2-1}</script><p>为防止浮点数下溢与方便数值求解，通常取对数似然：</p><script type="math/tex; mode=display">LL(\theta)=\sum_{n=1}^N \ln p(x_n | \theta) \tag{2-2}</script><p>所以，$\hat{\theta}_{ML}$ 表示为（取平均对数似然）：</p><script type="math/tex; mode=display">\hat{\theta}_{ML}=\arg\max_\theta \frac{1}{N} \sum_{n=1}^N \ln p(x_n | \theta) \tag{2-3}</script><p>当使用数值方法求解极小值时，通常会将最大化问题转化为最小化问题，即取负对数。</p><h2 id="中文文章"><a href="#中文文章" class="headerlink" title="中文文章"></a>中文文章</h2><p>&#160; &#160; &#160; &#160;我舅舅上个世纪（20世纪）末生活在世界上。有件事我们大家都知道：在中国，历史以三十年为极限，我们不可能知道三十年以前的事。我舅舅比我大了三十多岁，所以他的事我就不大知道——更正确的说法是不该知道。他留下了一大堆的笔记、相片，除此之外，我还记得他的样子。他是个肤色黝黑的大个子，年轻时头发很多，老了就秃了。他们那个时候的事情，我们知道的只是：当时烧煤，烧得整个天空乌烟障气，而且大多数人骑车上班。自行车这种体育器械，在当年是一种代步工具，样子和今天的也大不相同，在两个轮子之间有一个三角形的钢管架子，还有一根管子竖在此架子之上。流传到现在的车里有一小部分该管子上面有个车座，另一部分上面什么都没有；此种情形使考古学家大惑不解，有人说后一些车子的座子遗失了，还有人提出了更深刻的解释——当时的人里有一部分是受信任的，可以享受比较好的生活，有座的车就属于他们。另一部分人不受信任，所以必须一刻不停地折磨自己，才能得到活下去的权利，故而这种不带座子的自行车就是他们对肛门、会阴部实施自残自虐的工具。根据我的童年印象，这后一种说法颇为牵强。我还记得人们是怎样骑自行车的。但是我不想和权威争辩——上级现在还信任我，我也不想自讨没趣。</p><p>&#160; &#160; &#160; &#160;舅舅是个作家，但是在他生前一部作品也没发表过，这是他不受信任的铁证。因为这个原故，他的作品现在得以出版，并且堆积在书店里无人问津。众所周知，现在和那时大不一样了，我们的社会发生了重大转折，走向了光明。——不管怎么说吧，作为外甥，我该为此大为欢喜，但是书商恐怕会有另一种结论。我舅舅才情如何，自然该由古典文学的研究者来评判，我知道的只是：现在纸张书籍根本不受欢迎，受欢迎的是电子书籍，还该有多媒体插图。所以书商真的要让我舅舅重见天日的话，就该多投点资，把我舅舅的书编得像点样子。现在他们又找到我，让我给他老人家写一本传记，其中必须包括他骑那种没有座的自行车，并且要考据出他得了痔疮，甚至前列腺癌。但是根据我掌握的材料，我舅舅患有各种疾病，包括关节炎、心脏病，但上述器官没有一种长在肛门附近，是那种残酷的车辆导致的。他死于一次电梯事故，一下子就被压扁了，这是个让人羡慕的死法，明显地好于死于前列腺癌。这就使我很为难了。我本人是学历史的，历史是文科；所以我知道文科的导向原则——这就是说，一切形成文字的东西，都应当导向一个对我们有利的结论。我舅舅已经死了，让他死于痔疮、前列腺癌，对我们有利，就让他这样死，本无不可。但是这样一来，我就不知死在电梯里的那个老头子是谁了。他死时我已经二十岁，记得事。当时他坐电梯要到十四楼，却到了地下室，而且变得肢体残缺。有人说，那电梯是废品，每天都坏，还说管房子的收了包工头的回扣。这样说不够“导向”——这样他就是死于某个人的贪心、而不是死于制度的弊病了。必须另给他个死法。这个问题我能解决，因为我在中文系修了好几年的写作课，专门研究如何臭编的问题。</p><h1 id="Going-deeper-with-convolutions"><a href="#Going-deeper-with-convolutions" class="headerlink" title="Going deeper with convolutions"></a>Going deeper with convolutions</h1><p><strong>Christian Szegedy</strong> et al.<br><em>Published on arXiv, 2014</em> </p><p><strong>[Abstract]</strong> We propose a deep convolutional neural network architecture codenamed Incep- tion, which was responsible for setting the new state of the art for classification and detection in the ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC14). The main hallmark of this architecture is the improved utilization of the computing resources inside the network. This was achieved by a carefully crafted design that allows for increasing the depth and width of the network while keeping the computational budget constant. To optimize quality, the architectural decisions were based on the Hebbian principle and the intuition of multi-scale processing. One particular incarnation used in our submission for ILSVRC14 is called GoogLeNet, a 22 layers deep network, the quality of which is assessed in the context of classification and detection.</p><h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1 Introduction"></a>1 Introduction</h2><p>In the last three years, mainly due to the advances of deep learning, more concretely convolutional networks [10], the quality of image recognition and object detection has been progressing at a dra- matic pace. One encouraging news is that most of this progress is not just the result of more powerful hardware, larger datasets and bigger models, but mainly a consequence of new ideas, algorithms and improved network architectures. No new data sources were used, for example, by the top entries in the ILSVRC 2014 competition besides the classification dataset of the same competition for detec- tion purposes. Our GoogLeNet submission to ILSVRC 2014 actually uses 12× fewer parameters than the winning architecture of Krizhevsky et al [9] from two years ago, while being significantly more accurate. The biggest gains in object-detection have not come from the utilization of deep networks alone or bigger models, but from the synergy of deep architectures and classical computer vision, like the R-CNN algorithm by Girshick et al [6].</p><p>Another notable factor is that with the ongoing traction of mobile and embedded computing, the efficiency of our algorithms – especially their power and memory use – gains importance. It is noteworthy that the considerations leading to the design of the deep architecture presented in this paper included this factor rather than having a sheer fixation on accuracy numbers. For most of the experiments, the models were designed to keep a computational budget of 1.5 billion multiply-adds at inference time, so that the they do not end up to be a purely academic curiosity, but could be put to real world use, even on large datasets, at a reasonable cost.</p><p>In this paper, we will focus on an efficient deep neural network architecture for computer vision, codenamed Inception, which derives its name from the Network in network paper by Lin et al [12] in conjunction with the famous “we need to go deeper” internet meme [1]. In our case, the word “deep” is used in two different meanings: first of all, in the sense that we introduce a new level of organization in the form of the “Inception module” and also in the more direct sense of increased network depth. In general, one can view the Inception model as a logical culmination of [12] while taking inspiration and guidance from the theoretical work by Arora et al [2]. The benefits of the architecture are experimentally verified on the ILSVRC 2014 classification and detection challenges, on which it significantly outperforms the current state of the art.</p><h2 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2 Related Work"></a>2 Related Work</h2><p>Starting with LeNet-5 [10], convolutional neural networks (CNN) have typically had a standard structure – stacked convolutional layers (optionally followed by contrast normalization and max- pooling) are followed by one or more fully-connected layers. Variants of this basic design are prevalent in the image classification literature and have yielded the best results to-date on MNIST, CIFAR and most notably on the ImageNet classification challenge [9, 21]. For larger datasets such as Imagenet, the recent trend has been to increase the number of layers [12] and layer size [21, 14], while using dropout [7] to address the problem of overfitting.</p><p>Despite concerns that max-pooling layers result in loss of accurate spatial information, the same convolutional network architecture as [9] has also been successfully employed for localization [9, 14], object detection [6, 14, 18, 5] and human pose estimation [19]. Inspired by a neuroscience model of the primate visual cortex, Serre et al. [15] use a series of fixed Gabor filters of different sizes in order to handle multiple scales, similarly to the Inception model. However, contrary to the fixed 2-layer deep model of [15], all filters in the Inception model are learned. Furthermore, Inception layers are repeated many times, leading to a 22-layer deep model in the case of the GoogLeNet model.</p><p>Network-in-Network is an approach proposed by Lin et al. [12] in order to increase the representa- tional power of neural networks. When applied to convolutional layers, the method could be viewed as additional 1 × 1 convolutional layers followed typically by the rectified linear activation [9]. This enables it to be easily integrated in the current CNN pipelines. We use this approach heavily in our architecture. However, in our setting, 1 × 1 convolutions have dual purpose: most critically, they are used mainly as dimension reduction modules to remove computational bottlenecks, that would otherwise limit the size of our networks. This allows for not just increasing the depth, but also the width of our networks without significant performance penalty.</p><p>The current leading approach for object detection is the Regions with Convolutional Neural Net- works (R-CNN) proposed by Girshick et al. [6]. R-CNN decomposes the overall detection problem into two subproblems: to first utilize low-level cues such as color and superpixel consistency for potential object proposals in a category-agnostic fashion, and to then use CNN classifiers to identify object categories at those locations. Such a two stage approach leverages the accuracy of bound- ing box segmentation with low-level cues, as well as the highly powerful classification power of state-of-the-art CNNs. We adopted a similar pipeline in our detection submissions, but have ex- plored enhancements in both stages, such as multi-box [5] prediction for higher object bounding box recall, and ensemble approaches for better categorization of bounding box proposals.</p><h2 id="3-Motivation-and-High-Level-Considerations"><a href="#3-Motivation-and-High-Level-Considerations" class="headerlink" title="3 Motivation and High Level Considerations"></a>3 Motivation and High Level Considerations</h2><p>The most straightforward way of improving the performance of deep neural networks is by increas- ing their size. This includes both increasing the depth – the number of levels – of the network and its width: the number of units at each level. This is as an easy and safe way of training higher quality models, especially given the availability of a large amount of labeled training data. However this simple solution comes with two major drawbacks.</p><img src="http://cs231n.github.io/assets/trainset.jpg"><blockquote><p>Figure 1: An example training set for four visual categories. In practice we may have thousands of categories and hundreds of thousands of images for each category.</p></blockquote><p>Bigger size typically means a larger number of parameters, which makes the enlarged network more prone to overfitting, especially if the number of labeled examples in the training set is limited. This can become a major bottleneck, since the creation of high quality training sets can be tricky and expensive, especially if expert human raters are necessary to distinguish between fine-grained visual categories like those in ImageNet (even in the 1000-class ILSVRC subset) as demonstrated by <code>Figure 1</code>.</p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NearestNeighbor</span><span class="params">(object)</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">(self, X, y)</span>:</span></span><br><span class="line">    <span class="string">""" X is N x D where each row is an example. Y is 1-dimension of size N """</span></span><br><span class="line">    <span class="comment"># the nearest neighbor classifier simply remembers all the training data</span></span><br><span class="line">    self.Xtr = X</span><br><span class="line">    self.ytr = y</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, X)</span>:</span></span><br><span class="line">    <span class="string">""" X is N x D where each row is an example we wish to predict label for """</span></span><br><span class="line">    num_test = X.shape[<span class="number">0</span>]</span><br><span class="line">    <span class="comment"># lets make sure that the output type matches the input type</span></span><br><span class="line">    Ypred = np.zeros(num_test, dtype = self.ytr.dtype)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># loop over all test rows</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(num_test):</span><br><span class="line">      <span class="comment"># find the nearest training image to the i'th test image</span></span><br><span class="line">      <span class="comment"># using the L1 distance (sum of absolute value differences)</span></span><br><span class="line">      distances = np.sum(np.abs(self.Xtr - X[i,:]), axis = <span class="number">1</span>)</span><br><span class="line">      min_index = np.argmin(distances) <span class="comment"># get the index with smallest distance</span></span><br><span class="line">      Ypred[i] = self.ytr[min_index] <span class="comment"># predict the label of the nearest example</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> Ypred</span><br></pre></td></tr></table></figure><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE HTML&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"content-type"</span> <span class="attr">content</span>=<span class="string">"text/html;charset=utf-8;"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge,chrome=1"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"robots"</span> <span class="attr">content</span>=<span class="string">"all"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"robots"</span> <span class="attr">content</span>=<span class="string">"index,follow"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"https://qzone.qq.com/gy/404/style/404style.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/plain"</span> <span class="attr">src</span>=<span class="string">"http://www.qq.com/404/search_children.js"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">charset</span>=<span class="string">"utf-8"</span> <span class="attr">homePageUrl</span>=<span class="string">"/"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">homePageName</span>=<span class="string">"回到我的主页"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://qzone.qq.com/gy/404/data.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://qzone.qq.com/gy/404/page.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="Media"><a href="#Media" class="headerlink" title="Media"></a>Media</h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;This-is-a-h1-title&quot;&gt;&lt;a href=&quot;#This-is-a-h1-title&quot; class=&quot;headerlink&quot; title=&quot;This is a h1 title&quot;&gt;&lt;/a&gt;This is a h1 title&lt;/h1&gt;&lt;h2 id=&quot;T
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Backpropagation for a Linear Layer (test)</title>
-    <link href="http://xiekai.site/2018/02/05/test3/"/>
-    <id>http://xiekai.site/2018/02/05/test3/</id>
-    <published>2018-02-05T08:39:24.000Z</published>
-    <updated>2018-02-05T09:18:26.785Z</updated>
-    
-    <content type="html"><![CDATA[<p>In these notes we will explicitly derive the equations to use when backpropagating through a linear layer, using minibatches.</p><p>During the forward pass, the linear layer takes an input $X$ of shape $N × D$ and a weight matrix $W$ of shape $D × M$, and computes an output $Y = XW$ of shape $N × M$ by computing the matrix product of the two inputs. To make things even more concrete, we will consider the case $N = 2, D = 2, M = 3$.</p><p>We can then write out the forward pass in terms of the elements of the inputs:</p><h3 id="KKT-Conditions"><a href="#KKT-Conditions" class="headerlink" title="KKT Conditions"></a>KKT Conditions</h3><p>$x$ is global solution of the CP problem</p><script type="math/tex; mode=display">min \ f(x) \\s.t. a_i(x)=0,\ for i=1,...,b \\c_j(x) \leq 0,\ for j=1,...,q</script><p>$iff.$<br>$(i)  a_i(x)=0 \quad for i=1,…,p$<br>$(ii)  a_j(x) \leq 0 \quad for j=1,…,q$<br>$(iii)  \nabla f(x)+\sum_{i=1}^{p}\lambda_i\nabla a_i(x)+\sum_{j=1}^{q}\mu_j\nabla c_j(x)=0$<br>$(iv)  \mu_j c_j(x)=0 \quad for j=1,…,q$<br>$(v)  \mu_j \geq 0 \quad for j=1,…,q$</p><h2 id="Q-k-means-clustering"><a href="#Q-k-means-clustering" class="headerlink" title="Q: k-means clustering"></a>Q: k-means clustering</h2><h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><ul><li>$D=\{x_1,x_2,…,x_N\}, x_n\in R^d$</li><li>聚类簇数：$K$</li></ul><h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ul><li>定义 $\mu_k$: 第$k$类的聚类中心，$k=1,…,K$</li><li>定义 $r_{nk}\in\{0,1\}$: 数据点$x_n$属于$K$个聚类中的哪一个 </li><li>目标函数：$J=\sum_{n=1}^{N}\sum_{k=1}^{K} r_{nk} ||x_n-\mu_k||^2$，目标：找到$\{r_{nk}\}$和$\{\mu_k\}$的值，使得$J$达到最小值</li><li>迭代<ul><li>E Step: 关于$\{r_{nk}\}$最小化$J$，保持$\{\mu_k\}$固定<br>对每个$n$分别进行最优化，只要$k$的值使$||x_n-\mu_k||^2$最小，就令$\{r_{nk}\}$等于1，即<script type="math/tex; mode=display">r_{nk}=\begin{cases} 1& if\quad k=argmin_j||x_n-\mu_k||^2\\0& otherwise \end{cases}</script></li><li>M Step: 关于$\{\mu_k\}$最小化$J$，保持$\{r_{nk}\}$固定<br>对每个$\mu_k, l\in\{1,2,…,K\}$进行最优化<script type="math/tex; mode=display">\begin{aligned} \nabla_{\mu_k}J &= \sum_{n=1}^{N}\sum_{k=1}^{K}r_{nk}\nabla_{\mu_k} ||x_n-\mu_k||^2 \\&=\sum_{n=1}^{N}r_{nk}\nabla_{\mu_k} ||x_n-\mu_k||^2 \\&=2\sum_{n=1}^{N}r_{nk}(\mu_k-x_n)=0  \end{aligned}\\\Rightarrow \mu_k=\frac{\sum_{n=1}^{N}r_{nk}x_n}{\sum_{n=1}^{N}r_{nk}}</script>即令$\mu_k$等于类别k的所有数据点的均值</li><li>直到所有均值向量均为更新（或设置最大运行轮数/最小调整幅度）</li></ul></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;In these notes we will explicitly derive the equations to use when backpropagating through a linear layer, using minibatches.&lt;/p&gt;
-&lt;p&gt;Duri
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>A Review of ECNU PRML Lectures (test)</title>
-    <link href="http://xiekai.site/2018/02/05/test2/"/>
-    <id>http://xiekai.site/2018/02/05/test2/</id>
-    <published>2018-02-05T08:36:51.000Z</published>
-    <updated>2018-02-05T08:50:32.962Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Lecture-1-Introduction-amp-generic-techniques"><a href="#Lecture-1-Introduction-amp-generic-techniques" class="headerlink" title="Lecture 1: Introduction &amp; generic techniques"></a>Lecture 1: Introduction &amp; generic techniques</h2><h3 id="过拟合-Overfitting-与规范化-Regularization"><a href="#过拟合-Overfitting-与规范化-Regularization" class="headerlink" title="过拟合(Overfitting)与规范化(Regularization)"></a>过拟合(Overfitting)与规范化(Regularization)</h3><ul><li><p>过拟合<br>过拟合是指学习时选择的模型所包含的参数过多，导致对已知数据预测得很好，但对未知数据预测很差的现象。即所得的假设函数拥有较低的训练误差，但有较高的泛化误差。导致过拟合的主要影响因素有：模型的复杂度、训练数据的噪声、数据规模。过拟合无法彻底避免，只能减小其风险。</p></li><li><p>规范化<br>规范化（正则化）是一种控制过拟合现象的技术。通过给误差函数增加一个惩罚项，使得系数不会达到很大的值。这种惩罚项最简单的形式是采用所有系数的平方和的形式。<br>一般形式：</p><script type="math/tex; mode=display">\arg\min \frac{1}{N}\sum_{i=1}^N L(y_i,f(x_i))+\lambda J(f)</script><p>其中，第一项为经验风险，第二项为规范化项，$\lambda$调整两者之间的关系。</p></li></ul><h3 id="参数估计方法"><a href="#参数估计方法" class="headerlink" title="参数估计方法"></a>参数估计方法</h3><p>频率学派：就事件本身建模。认为参数固定，样本随机。只要样本分布确定了，参数就是个固定的值。e.g. MLE<br>贝叶斯派：参数随机，样本固定。参数服从先验分布，通过不断获取新的样本，去修正参数（即形成后验分布）e.g. MAP</p><ul><li>贝叶斯公式<script type="math/tex; mode=display">p(\theta|X)=\frac{p(X|\theta)p(\theta)}{p(X)}</script></li></ul><p>给定数据集：$X=(x_1,x_2,…,x_N)^T$</p><h4 id="最大似然估计（MLE）"><a href="#最大似然估计（MLE）" class="headerlink" title="最大似然估计（MLE）"></a>最大似然估计（MLE）</h4><p>最大似然估计就是用似然函数取到最大值时的参数值作为估计值，似然函数可以写做：</p><script type="math/tex; mode=display">L(\theta)=p(X | \theta)=\prod_{i=n}^N p(x_n | \theta)</script><p>为防止浮点数下溢与方便数值求解，通常取对数似然：</p><script type="math/tex; mode=display">LL(\theta)=\sum_{n=1}^N \ln p(x_n | \theta)</script><p>所以，$\hat{\theta}_{ML}$表示为（取平均对数似然）：</p><script type="math/tex; mode=display">\hat{\theta}_{ML}=\arg\max_\theta \frac{1}{N} \sum_{n=1}^N \ln p(x_n | \theta)</script><p>当使用数值方法求解极小值时，通常会将最大化问题转化为最小化问题，即取负对数。</p><h4 id="最大参数后验（MAP）"><a href="#最大参数后验（MAP）" class="headerlink" title="最大参数后验（MAP）"></a>最大参数后验（MAP）</h4><p>最大后验估计是根据经验数据获得对难以观察的量的点估计。最大后验加入了要估计量的先验分布。</p><script type="math/tex; mode=display">posterior \propto likelihood \times prior</script><p>取对数则有：</p><script type="math/tex; mode=display">\ln\{posterior\} \propto \ln\{likelihood\} + \ln\{prior\}</script><h4 id="贝叶斯估计"><a href="#贝叶斯估计" class="headerlink" title="贝叶斯估计"></a>贝叶斯估计</h4><h2 id="Lecture-2-Gaussian-distribution-amp-related-techniques"><a href="#Lecture-2-Gaussian-distribution-amp-related-techniques" class="headerlink" title="Lecture 2: Gaussian distribution &amp; related techniques"></a>Lecture 2: Gaussian distribution &amp; related techniques</h2><h3 id="高斯分布的性质"><a href="#高斯分布的性质" class="headerlink" title="高斯分布的性质"></a>高斯分布的性质</h3><ul><li>一元变量$x$的情形<script type="math/tex; mode=display">\mathcal N(x|\mu,\sigma^2)=\frac{1}{(2\pi\sigma^2)^{\frac{1}{2}}}\exp\{-\frac{1}{2\sigma^2}(x-\mu)^2\}</script>其中$\mu$是均值，$\sigma^2$是方差。<ul><li>$\mathbb E[x]=\mu$</li><li>$var[x]=\sigma^2$</li></ul></li><li>多元情况<script type="math/tex; mode=display">\mathcal N(x|\mu,\Sigma)=\frac{1}{(2\pi)^\frac{D}{2}}\frac{1}{|\Sigma|^\frac{1}{2}}\exp\{-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)\}</script>其中，$\mu$是一个D维均值向量，$\Sigma$是一个$D\times D$的协方差矩阵，$|\Sigma|$是$\Sigma$的行列式<ul><li>$\mathbb E[\bf{x}]=\bf{\mu}$</li><li>$cov[\bf{x}]=\bf{\Sigma}$</li></ul></li><li>中心极限定理：设从均值为$\mu$，方差为$\sigma^2$（有限）的任意一个总体中抽取样本量为$n$的样本；当$n$充分大时，样本均值的抽样分布近似服从$\mu$，方差为$\frac{\sigma^2}{n}$的正态分布。</li></ul><h3 id="Woodbury矩阵求逆"><a href="#Woodbury矩阵求逆" class="headerlink" title="Woodbury矩阵求逆"></a>Woodbury矩阵求逆</h3><script type="math/tex; mode=display">(A+BCD)^{-1}=A^{-1}-A^{-1}B(C^{-1}+DA^{-1}B)^{-1}DA^{-1}</script><h2 id="Lecture-3-Linear-models-for-regression"><a href="#Lecture-3-Linear-models-for-regression" class="headerlink" title="Lecture 3: Linear models for regression"></a>Lecture 3: Linear models for regression</h2><p>回归问题的目标是在给定$D$维输入（input）变量$x$的情况下，预测一个或者多个连续目标（target）变量$t$的值。<br>给定一个由$N$个观测值$\{x_n\}$组成的数据集，其中$n=1,…,N$，以及对应的目标值{t_n}，我们的目标是预测对于给定新的$x$值的情况下，$t$的值。</p><ul><li>方法：<ol><li>建立一个适当的函数$y(x)$，对于新$x$，直接给出对应的$t$值。</li><li>对预测分布$p(t | x)$建模。（等同于最小化一个恰当选择的损失函数的期望值）</li></ol></li></ul><h3 id="线性回归模型（线性基函数模型）"><a href="#线性回归模型（线性基函数模型）" class="headerlink" title="线性回归模型（线性基函数模型）"></a>线性回归模型（线性基函数模型）</h3><ul><li>线性回归模型：表示模型是关于参数的线性函数</li><li><p>线性基函数模型</p><script type="math/tex; mode=display">y(x,w)=w_0+\sum_{j=1}^{M-1}w_j \phi_j(x)</script><p>其中，$x=(x1,…,x_D)^T, w=(w0,…,w_D)^T, \phi_j(x)$为基函数（basis function），参数总数为$M$。<br>方便起见，定义$\phi_0(x)=1$：</p><script type="math/tex; mode=display">y(x,w)=\sum_{j=0}^{M-1}w_j \phi_j(x)=w^T\phi(x)</script><p>其中，$\phi=(\phi_0,…,\phi_{M-1})^T$</p></li><li><p>通过使用非线性基函数，能够让函数$y(x,w)$成为输入向量$x$的一个非线性函数。通常选择如下基函数：</p><ul><li>幂指数<script type="math/tex; mode=display">\phi_j(x)=x^j</script></li><li>高斯基函数<script type="math/tex; mode=display">\phi_j(x)=exp\{-\frac{(x-\mu_j)^2}{2s^2}\}</script>$\mu_j$控制了基函数在输入空间中的位置，参数$s$控制了基函数的空间大小</li><li>sigmoid基函数<script type="math/tex; mode=display">\phi_j(x)=\sigma(\frac{x-\mu_j}{s})</script>其中$\sigma(a)=\frac{1}{1+e^{-a}}$为logistic sigmoid</li><li>傅立叶基函数</li></ul></li></ul><h3 id="最小二乘与规范化最小二乘"><a href="#最小二乘与规范化最小二乘" class="headerlink" title="最小二乘与规范化最小二乘"></a>最小二乘与规范化最小二乘</h3><script type="math/tex; mode=display">E_D(w)=\frac{1}{2} \sum_{n=1}^N\{t_n-w^T \phi(x_n)\}^2</script><h4 id="规范化最小二乘"><a href="#规范化最小二乘" class="headerlink" title="规范化最小二乘"></a>规范化最小二乘</h4><p>总的误差函数表达为：$E_D(w)+\lambda E_W(w)$</p><ul><li><p>正则化项$E_W(w)$的选择</p><ul><li>权向量各个元素的平方和<script type="math/tex; mode=display">E_W(w)=\frac{1}{2}w^Tw</script></li><li><p>更一般化</p><script type="math/tex; mode=display">E_W(w)=\frac{1}{2}\sum_{j=1}^M |w_j|^q</script></li><li><p>$q=1$的情形称为套索（lasso），$q=2$对应于二次规范化项。</p></li></ul></li></ul><h2 id="Lecture-4-Essential-numerical-mathematics-amp-vector-calculus"><a href="#Lecture-4-Essential-numerical-mathematics-amp-vector-calculus" class="headerlink" title="Lecture 4: Essential numerical mathematics &amp; vector calculus"></a>Lecture 4: Essential numerical mathematics &amp; vector calculus</h2><h3 id="矩阵分解"><a href="#矩阵分解" class="headerlink" title="矩阵分解"></a>矩阵分解</h3><h3 id="共轭梯度算法"><a href="#共轭梯度算法" class="headerlink" title="共轭梯度算法"></a>共轭梯度算法</h3><h3 id="向量微积分"><a href="#向量微积分" class="headerlink" title="向量微积分"></a>向量微积分</h3><h2 id="Lecture-5-Linear-models-for-classification"><a href="#Lecture-5-Linear-models-for-classification" class="headerlink" title="Lecture 5: Linear models for classification"></a>Lecture 5: Linear models for classification</h2><p>分类的目标是将输入变量$x$分到K个离散的类别$C_k$中的某一类。</p><ul><li>分类线性模型：决策面是$x$的线性函数<h3 id="判别函数、概率产生式模型、概率判别式模型"><a href="#判别函数、概率产生式模型、概率判别式模型" class="headerlink" title="判别函数、概率产生式模型、概率判别式模型"></a>判别函数、概率产生式模型、概率判别式模型</h3>对于分类问题：可分为推断（inference）和决策（decision）两个阶段。推断阶段，使用训练数据学习$p(C_k|x)$的模型；决策阶段，使用后验概率来进行最优的分类。也可以同时解决两个问题，即简单地学习一个函数（判别函数，discriminant function），将输入$x$直接映射为决策。</li><li>三种方法：</li></ul><ol><li>判别函数（discriminative function）<br>把每个输入$x$直接映射为类别标签（不接触后验概率）</li><li>概率判别式模型（discriminative model）<br>直接对后验概率分布$p(C_k | x)$建模，例如把条件概率分布表示为参数模型，然后使用训练集来最优化参数。</li><li>概率生成式模型（generative model）<br>对类条件概率密度$p(x | C_k)$以及类的先验概率分布$p(C_k)$建模，然后我们使用贝叶斯定理计算后验概率分布$p(C_k | x)$</li></ol><h3 id="线性判别函数"><a href="#线性判别函数" class="headerlink" title="线性判别函数"></a>线性判别函数</h3><ul><li><p>二分类</p><script type="math/tex; mode=display">y(x)=w^Tx+w_0</script><p>对于一个输入向量$x$，如果$y(x) \leq 0$，则分到$C_1$，否则分到$C_2$。</p></li><li><p>K分类<br>K分类由K个线性判别函数组成，形式为：</p><script type="math/tex; mode=display">y_k(x)=w_k^Tx+w_{k0}</script><p>对于一个输入向量$x$，如果对于所有的$j \neq k$都有$y_k(x)&gt;y_j(x)$，那么就把它分到$C_k$。</p></li><li><p>学习参数的方法</p><ul><li><p>最小平方法：使模型的预测尽可能与目标值接近。缺点：对于离群点缺乏鲁棒性</p></li><li><p>Fisher线性判别</p><p>基本思想：从维度降低的角度看线性分类模型。目标是使输出空间的类别有最大的区分度。通过调整权向量，使得类内的投影点尽可能接近，类间的投影点尽可能远离。<br>二分类情况：$C_1$类的点有$N_1$个，$C_2$类的点有$N_2$个<br>两类的均值向量为：$m_1=\frac{1}{N_1}\sum_{n \in C_1}x_n, m_2=\frac{1}{N_2}\sum_{n \in C_2}x_n$</p></li></ul></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Lecture-1-Introduction-amp-generic-techniques&quot;&gt;&lt;a href=&quot;#Lecture-1-Introduction-amp-generic-techniques&quot; class=&quot;headerlink&quot; title=&quot;Le
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Image Classification, kNN, SVM, Softmax, Neural Network (test)</title>
-    <link href="http://xiekai.site/2018/01/31/test/"/>
-    <id>http://xiekai.site/2018/01/31/test/</id>
-    <published>2018-01-31T03:27:04.000Z</published>
-    <updated>2018-02-05T14:30:30.511Z</updated>
-    
-    <content type="html"><![CDATA[<p>In this assignment you will practice putting together a simple image classification pipeline, based on the k-Nearest Neighbor or the SVM/Softmax classifier. The goals of this assignment are as follows:</p><ul><li>understand the basic <strong>Image Classification pipeline</strong> and the data-driven approach (train/predict stages)</li><li>understand the train/val/test <strong>splits</strong> and the use of validation data for <strong>hyperparameter tuning</strong>.</li><li>develop proficiency in writing efficient <strong>vectorized</strong> code with numpy</li><li>implement and apply a k-Nearest Neighbor (<strong>kNN</strong>) classifier</li><li>implement and apply a Multiclass Support Vector Machine (<strong>SVM</strong>) classifier</li><li>implement and apply a <strong>Softmax</strong> classifier</li><li>implement and apply a <strong>Two layer neural network</strong> classifier</li><li>understand the differences and tradeoffs between these classifiers</li><li>get a basic understanding of performance improvements from using <strong>higher-level representations</strong> than raw pixels (e.g. color histograms, Histogram of Gradient (HOG) features)</li></ul><a id="more"></a><h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><p>You can work on the assignment in one of two ways: locally on your own machine, or on a virtual machine on Google Cloud.</p><h3 id="Working-remotely-on-Google-Cloud-Recommended"><a href="#Working-remotely-on-Google-Cloud-Recommended" class="headerlink" title="Working remotely on Google Cloud (Recommended)"></a>Working remotely on Google Cloud (Recommended)</h3><p><strong>Note:</strong> after following these instructions, make sure you go to <strong>Download data</strong> below (you can skip the <strong>Working locally</strong> section).</p><p>As part of this course, you can use Google Cloud for your assignments. We recommend this route for anyone who is having trouble with installation set-up, or if you would like to use better CPU/GPU resources than you may have locally. Please see the set-up tutorial <a href="http://cs231n.github.io/gce-tutorial/" target="_blank" rel="noopener">here</a> for more details. :)</p><h3 id="Working-locally"><a href="#Working-locally" class="headerlink" title="Working locally"></a>Working locally</h3><p>Get the code as a zip file <a href="http://cs231n.stanford.edu/assignments/2017/spring1617_assignment1.zip" target="_blank" rel="noopener">here</a>. As for the dependencies:</p><p><strong>Installing Python 3.5+:</strong> To use python3, make sure to install version 3.5 or 3.6 on your local machine. If you are on Mac OS X, you can do this using Homebrew with <code>brew install python3</code>. You can find instructions for Ubuntu <a href="https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-16-04" target="_blank" rel="noopener">here</a>.</p><p><strong>Virtual environment:</strong> If you decide to work locally, we recommend using <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/" target="_blank" rel="noopener">virtual environment</a> for the project. If you choose not to use a virtual environment, it is up to you to make sure that all dependencies for the code are installed globally on your machine. To set up a virtual environment, run the following:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd assignment1</span><br><span class="line">sudo pip install virtualenv      <span class="comment"># This may already be installed</span></span><br><span class="line">virtualenv -p python3 .env       <span class="comment"># Create a virtual environment (python3)</span></span><br><span class="line"><span class="comment"># Note: you can also use "virtualenv .env" to use your default python (usually python 2.7)</span></span><br><span class="line">source .env/bin/activate         <span class="comment"># Activate the virtual environment</span></span><br><span class="line">pip install -r requirements.txt  <span class="comment"># Install dependencies</span></span><br><span class="line"><span class="comment"># Work on the assignment for a while ...</span></span><br><span class="line">deactivate                       <span class="comment"># Exit the virtual environment</span></span><br></pre></td></tr></table></figure><p>Note that every time you want to work on the assignment, you should run <code>source .env/bin/activate</code> (from within your <code>assignment1</code> folder) to re-activate the virtual environment, and <code>deactivate</code> again whenever you are done.</p><h3 id="Download-data"><a href="#Download-data" class="headerlink" title="Download data:"></a>Download data:</h3><p>Once you have the starter code (regardless of which method you choose above), you will need to download the CIFAR-10 dataset. Run the following from the <code>assignment1</code> directory:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd cs231n/datasets</span><br><span class="line">./get_datasets.sh</span><br></pre></td></tr></table></figure><h3 id="Start-IPython"><a href="#Start-IPython" class="headerlink" title="Start IPython:"></a>Start IPython:</h3><p>After you have the CIFAR-10 data, you should start the IPython notebook server from the <code>assignment1</code> directory, with the <code>jupyter notebook</code> command. (See the <a href="http://cs231n.github.io/gce-tutorial/" target="_blank" rel="noopener">Google Cloud Tutorial</a> for any additional steps you may need to do for setting this up, if you are working remotely)</p><p>If you are unfamiliar with IPython, you can also refer to our <a href="http://cs231n.github.io/ipython-tutorial" target="_blank" rel="noopener">IPython tutorial</a>.</p><h3 id="Some-Notes"><a href="#Some-Notes" class="headerlink" title="Some Notes"></a>Some Notes</h3><p><strong>NOTE 1:</strong> This year, the <code>assignment1</code> code has been tested to be compatible with python versions <code>2.7</code>, <code>3.5</code>, <code>3.6</code> (it may work with other versions of <code>3.x</code>, but we won’t be officially supporting them). You will need to make sure that during your <code>virtualenv</code> setup that the correct version of <code>python</code> is used. You can confirm your python version by (1) activating your virtualenv and (2) running <code>which python</code>.</p><p><strong>NOTE 2:</strong> If you are working in a virtual environment on OSX, you may <em>potentially</em> encounter errors with matplotlib due to the <a href="http://matplotlib.org/faq/virtualenv_faq.html" target="_blank" rel="noopener">issues described here</a>. In our testing, it seems that this issue is no longer present with the most recent version of matplotlib, but if you do end up running into this issue you may have to use the <code>start_ipython_osx.sh</code> script from the <code>assignment1</code> directory (instead of <code>jupyter notebook</code> above) to launch your IPython notebook server. Note that you may have to modify some variables within the script to match your version of python/installation directory. The script assumes that your virtual environment is named <code>.env</code>.</p><h3 id="Submitting-your-work"><a href="#Submitting-your-work" class="headerlink" title="Submitting your work:"></a>Submitting your work:</h3><p>Whether you work on the assignment locally or using Google Cloud, once you are done working run the <code>collectSubmission.sh</code> script; this will produce a file called <code>assignment1.zip</code>. Please submit this file on <a href="https://canvas.stanford.edu/courses/66461/" target="_blank" rel="noopener">Canvas</a>.</p><h3 id="Q1-k-Nearest-Neighbor-classifier-20-points"><a href="#Q1-k-Nearest-Neighbor-classifier-20-points" class="headerlink" title="Q1: k-Nearest Neighbor classifier (20 points)"></a>Q1: k-Nearest Neighbor classifier (20 points)</h3><p>The IPython Notebook <strong>knn.ipynb</strong> will walk you through implementing the kNN classifier.</p><h3 id="Q2-Training-a-Support-Vector-Machine-25-points"><a href="#Q2-Training-a-Support-Vector-Machine-25-points" class="headerlink" title="Q2: Training a Support Vector Machine (25 points)"></a>Q2: Training a Support Vector Machine (25 points)</h3><p>The IPython Notebook <strong>svm.ipynb</strong> will walk you through implementing the SVM classifier.</p><h3 id="Q3-Implement-a-Softmax-classifier-20-points"><a href="#Q3-Implement-a-Softmax-classifier-20-points" class="headerlink" title="Q3: Implement a Softmax classifier (20 points)"></a>Q3: Implement a Softmax classifier (20 points)</h3><p>The IPython Notebook <strong>softmax.ipynb</strong> will walk you through implementing the Softmax classifier.</p><h3 id="Q4-Two-Layer-Neural-Network-25-points"><a href="#Q4-Two-Layer-Neural-Network-25-points" class="headerlink" title="Q4: Two-Layer Neural Network (25 points)"></a>Q4: Two-Layer Neural Network (25 points)</h3><p>The IPython Notebook <strong>two_layer_net.ipynb</strong> will walk you through the implementation of a two-layer neural network classifier.</p><h3 id="Q5-Higher-Level-Representations-Image-Features-10-points"><a href="#Q5-Higher-Level-Representations-Image-Features-10-points" class="headerlink" title="Q5: Higher Level Representations: Image Features (10 points)"></a>Q5: Higher Level Representations: Image Features (10 points)</h3><p>The IPython Notebook <strong>features.ipynb</strong> will walk you through this exercise, in which you will examine the improvements gained by using higher-level representations as opposed to using raw pixel values.</p><h3 id="Q6-Cool-Bonus-Do-something-extra-10-points"><a href="#Q6-Cool-Bonus-Do-something-extra-10-points" class="headerlink" title="Q6: Cool Bonus: Do something extra! (+10 points)"></a>Q6: Cool Bonus: Do something extra! (+10 points)</h3><p>Implement, investigate or analyze something extra surrounding the topics in this assignment, and using the code you developed. For example, is there some other interesting question we could have asked? Is there any insightful visualization you can plot? Or anything fun to look at? Or maybe you can experiment with a spin on the loss function? If you try out something cool we’ll give you up to 10 extra points and may feature your results in the lecture.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;In this assignment you will practice putting together a simple image classification pipeline, based on the k-Nearest Neighbor or the SVM/Softmax classifier. The goals of this assignment are as follows:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;understand the basic &lt;strong&gt;Image Classification pipeline&lt;/strong&gt; and the data-driven approach (train/predict stages)&lt;/li&gt;
-&lt;li&gt;understand the train/val/test &lt;strong&gt;splits&lt;/strong&gt; and the use of validation data for &lt;strong&gt;hyperparameter tuning&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;develop proficiency in writing efficient &lt;strong&gt;vectorized&lt;/strong&gt; code with numpy&lt;/li&gt;
-&lt;li&gt;implement and apply a k-Nearest Neighbor (&lt;strong&gt;kNN&lt;/strong&gt;) classifier&lt;/li&gt;
-&lt;li&gt;implement and apply a Multiclass Support Vector Machine (&lt;strong&gt;SVM&lt;/strong&gt;) classifier&lt;/li&gt;
-&lt;li&gt;implement and apply a &lt;strong&gt;Softmax&lt;/strong&gt; classifier&lt;/li&gt;
-&lt;li&gt;implement and apply a &lt;strong&gt;Two layer neural network&lt;/strong&gt; classifier&lt;/li&gt;
-&lt;li&gt;understand the differences and tradeoffs between these classifiers&lt;/li&gt;
-&lt;li&gt;get a basic understanding of performance improvements from using &lt;strong&gt;higher-level representations&lt;/strong&gt; than raw pixels (e.g. color histograms, Histogram of Gradient (HOG) features)&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="paper" scheme="http://xiekai.site/categories/paper/"/>
-    
-    
-      <category term="tag1" scheme="http://xiekai.site/tags/tag1/"/>
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -129,6 +32,386 @@
     </summary>
     
       <category term="essay" scheme="http://xiekai.site/categories/essay/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Sebasetian Thrun&#39;s Talk from ZhiHu Live</title>
+    <link href="http://xiekai.site/2016/11/01/FCS_Sebasetian-Thrun&#39;s-Talk-from-ZhiHu-Live%20/"/>
+    <id>http://xiekai.site/2016/11/01/FCS_Sebasetian-Thrun&#39;s-Talk-from-ZhiHu-Live /</id>
+    <published>2016-11-01T09:04:20.000Z</published>
+    <updated>2018-02-07T11:09:11.609Z</updated>
+    
+    <content type="html"><![CDATA[<p>前段时间 <strong>知乎Live</strong> 上有一场<a href="https://www.zhihu.com/lives/772099611425779712" target="_blank" rel="noopener">大咖级的Live</a>，Udacity（优达学城）的创始人、无人驾驶车的开创性人物塞巴斯蒂安·特龙（Sebasetian Thrun）做了一次Live分享！正好最近在读 <a href="https://book.douban.com/subject/26633041/" target="_blank" rel="noopener"><em>Machines of Loving Grace</em></a> ，书中提到了不少关于Thrun和Google无人车的故事。以下回顾整理了prof.Thrun在Live中的演讲内容。</p><a id="more"></a><blockquote><p><strong>主题： 预测未来，人工智能如何改变世界？</strong><br><strong>分享者： <a href="https://en.wikipedia.org/wiki/Sebastian_Thrun" target="_blank" rel="noopener">Sebasetian Thrun</a></strong><br><strong>时间： 2016-10-29 11:00（星期六）</strong></p></blockquote><h2 id="Live简介："><a href="#Live简介：" class="headerlink" title="Live简介："></a>Live简介：</h2><p>我叫 Sebastian Thrun ，是优达学城 (Udacity) 的联合创始人兼总裁，你也可以叫我「特龙教授」。在优达学城，我们致力于让每个人都享有学习世界上最前沿技术的权利，并帮助学生们找到理想中的工作。</p><p>在成立优达学城之前，我曾创办过 Google X 实验室，在那里领导研发了 Google 无人驾驶车。我还同时担任着斯坦福大学的研究教授。在硅谷，我每天都见证着不可思议的创新正在发生。而我们自己，也正在通过线上学习的方式，在优达学城教授无人驾驶车开发技术，我们甚至在通过开源的方式，建造我们自己的无人驾驶车。</p><p>这次来到知乎，是我第一次在中国的网站上和大家有这么亲密交流的机会（在优达学城上不算！）。我希望能基于我在硅谷见证、经历和创造过的那么多让人激动的技术突破，以及我在人工智能、无人驾驶、机器学习领域这么多年的经验，和大家聊聊我眼中的人类的未来，回答大家最关注的问题。</p><p><strong>本次 Live 主要包括以下方面的内容：</strong></p><ul><li>人工智能发展现况和以后它未来的发展趋势。</li><li>有哪些行业正在被机器学习、 VR 、人工智能这样的前沿技术颠覆着？</li><li>人工智能已经出场，它将如何影响未来每个人的工作？</li><li>下一个颠覆人类生活的技术突破会是什么？</li><li>作为一名刚刚入门的或者普通的程序员、工程师，你可以如何加入这些最前沿的技术革命？</li></ul><p>我希望通过我们的交流，能让你更加了解硅谷正在发生的让人激动人心的创新，了解它们正在如何改变着我们的世界。</p><p>作为一个歪果仁，我将用英语和大家交流，我也鼓励大家能用英文提问。不过不用担心，语言不会成为大家提问的障碍。</p><h2 id="Speech"><a href="#Speech" class="headerlink" title="Speech"></a>Speech</h2><div class="tip">    以下内容根据Sebasetian Thrun在知乎Live上的语音消息整理。完整语音见[这里](https://www.zhihu.com/lives/772099611425779712)</div><p><strong>S.T：</strong><br>Hi, everybody! My name is Sebasetian Thrun, I’m super excited that so many of you in china, around this lovely saturday morning, to talk to me. I’m here in America, California. It’s really dark outside, but I’m here with my son, to answer some of your questions, so welcome this morning.</p><p>Many of you have asked questions about artificial intelligence —— AI. Artificial Intelligence is one of the hottest topics in silicon valley today. In fact, today I have breakfast with Bob Zhang, the CTO of Didi, and he’s desperately looking for new people to hire in the field of artificial intelligence and machine learning, and also self-driving cars. The basic of artificial intelligence is to make machines as smart as we are, or smarter. And to put this into relationship of history. some few years ago, humans invented the steam engine and flaming equipment and made machines stronger than humans can be at physical sense. What artificial intelligence does is to make machines stronger than we can be in intellectual sense, so machines can be smart, they can play games, they can drive cars, they can fly airplanes and so on.</p><p>Within artificial intelligence, perhaps the most interesting area today is machine learning. It’s the ability for machines to learn from experience, again, to put this into perspective. If you programme a computer, you tell the computer meticulously for every contingency ought to do. A modern computer programme is millions of lives long because of millions of ways to deal with things. but a programmer has to be smart enough to participate all the posibilities to make sure your computer doesn’t crash. That’s why some of the engineers make so much money. In the age of machine learning, machines don’t have to be instructed any more, they have to be taught, they have to be taought similiar to the way we teach young people. We don’t tell them line by line or to do any contingency. Instead, they fall over, they get up again, and they learn from experience. Machine learning makes it possible to have machines learning from experience or from data. </p><p>Historically it was really hard to learing about artificial intelligence in machine learing. Most universities are a little bit behind what’s happening here in silicon valley. But now we have Udacity, and in Udacity you can take nanodegree courses to learn the latest and the best. These nanodegree courses are made by leaders in industry, by experts from Facebook, Google, Amazon, IBM and many other top U.S tech companies. They help us set the most up-to-date curriculum. You can learn about deep learning, about machine learning in general, computer vision, robitics, self-driving cars, and many other topics. their curriculum was built by the experts and is very very very new. So if you study with us, you will become one of the top people in the world in this areas.</p><p>I have been in artificial intelligence for a long long time. Believe it or no, I got my master degree in 1993 about machine learning and robitics and ever since, I’ve been facisnated with the question can machines learn the same way humans can learn. In 2005, more than ten years ago, I participated in the DARPA Grand Challenge. The DARPA Grand Challenge was a robot race organized by the US government to build cars that can drive themselves. 196 teams for competing for a million dollar prize. And my team at Standford University won this prize. I’ve also been the director of Sandford Artificial Intelligence Lab and since worked at Google on artificial intelligence. The core of my work is related to machine learning. Stan Lee was a learning robot, it learn from data, sometimes it experiences things itself and learn from its own mistakes, in other times, it learn from human drivers and tend to drive the same way human drivers drive. In the end, the learning part gave Stan Lee the decisive advantage over its 195 competitors and won the 2005 DARPA Grand Challenge.</p><p>Moving on to Google, the Google self-driving car learns, and again, the difficulty here is there’re so many rare situations in driving, the cars should be able to master every single one of them. So the Google self-driving cars drive at million miles of public streets to training the software to learn how to drive. One of the difference between human learning and computer learning is the speed of which can learn. Here’s the example, if a human driver makes a driving mistake, then the person learns and hopefully avoid the same mistake in the future, but nobody else though. But if a robot car makes a mistake, it too learns from its mistake, but so do all the other robot cars, including all future unborn cars. That maeans one mistake trains every single car in the world, that means cars learn faster than people can learn. As a result, there may be a time that every car will drive much much much safer than the human could ever drive. That’s the key difference between artificial intelligence and human learning, and is something really important because the applies to the other disciplines as well.</p><p>Machine learning is now being applied to many many many fields. For example, medical diagnostics. the machine learning algorithms are now able to diagnos cancer more accurately than the best human doctors. For the field of law, machine learning now can find documents better and draft contracts better than some of the best human lawyers. Obiously, the web, Google is able to find information more accurately, baidu as well, than people could ever imagine, and there’re also other things like accounting or playing games like the game of go. Google’s AlphaGo recently defeated the world’s best champion. And all these applications of artificial intelligence have the same thing in common —— they all massively use machine learning learning from data. If you look at machine learning, AlphaGo for example, is able to look at millions of games. No human experts is long enough to look at millions of games. As a result, AlphaGo consumes much more data and is able to learn better, and play than any human can play.</p><p>In the future, what AI will do to us is the same as the agricultural and industrial revolution has done to us. It will make us better people, it will free us of repatitive and bring it office work such as doing the same thing over and over again. So being a lawyer in the future means you will waste less time on things like documents discovery and more time on the creative fun of being a lawyer. Being a doctor means you will miss few diseases, you diagnose people better, but you can spend more time with people talking to them and less time looking at skin or the tissues examples. Every field that engaged in intellectual repetitive work will be changed through artificial intelligence. That’s really important. We believe that in the future the best jobs really in fields such as artificial intelligence, self-driving cars, machine learning, robitics, and so on. This is the field where silicon valley is desperately looking for talent and hiring departments which are now in hundreds of companies are seeking to find the top talent. The phenomenon is in China as well, among them Didi whose CTO I met this morning, who are really desperate to find really great talent, so if you want to be hot in the labor market and really get great job, I highly recommend take half a year studying machine learning, self-driving cars or artificial intelligence with us here in Udacity and I really hope you can find the job of your dreams.</p><p><img src="http://ofx0mmpb5.bkt.clouddn.com/FCS01.2.jpg" alt="FCS01.2"><code>*photo of Sebasetian Thrun</code></p><h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><div class="tip">以下内容转载自优达学城（Udacity）的 [知乎专栏](https://zhuanlan.zhihu.com/p/23632552)</div><p><strong>1. 教授你好，我想知道谷歌如何实现神经网络机器翻译，以及它与人工智能有什么关系？</strong></p><p>谷歌的神经网络机器翻译是通过统计和机器学习技术实现的。他们用人工翻译的文本来训练翻译系统。例如，在加拿大每场政府辩论都会被从法语翻成英语、从英语翻成法语，因为加拿大有两种官方语言。如果谷歌的智能系统录入成百上千的文件后，它就能得出把一种语言翻译成另一种语言的统计规则。事实上，在谷歌研究机器翻译的工程师通常都不会说计算机翻译的那些语言。整个过程都是统计分析驱动的。你们可以在人工智能纳米学位（全球火热申请中）中学到设计机器翻译系统所需要的技术，它与数据科学和机器学习教的东西也高度相关。正因为如今我们可以轻易获得大量线上数据，才让这个激动人心的新领域成为可能。</p><p><strong>2. 教授你好，请问你是如何看待计算机视觉的未来前景的？计算机视觉公司，如 Megvil，Sensetime，现在很受欢迎。</strong></p><p>计算机视觉是人工智能中最激动人心的领域之一。直到几年前，我们甚至还不能识别照相机图像中的最基本的部分，如你的脸，或者你坐的椅子，或者流动的云。但是多亏了深度学习，我们现在能够分析非常复杂的东西。例如，汽车停在停车场中，电脑放在桌子上，甚至柔软无棱角的物体，如冰箱边上的食物。这只是个开始。计算机视觉使一种控制汽车的新方法得以实现。过去无人驾驶汽车使用雷达和激光作为感知环境的方法，现在有一种新方法是用计算机视觉和摄像机来分析行驶方向，并且进步很快。在优达学城，我们准备了一个实践挑战给无人驾驶汽车的学员来练习，要保证汽车按线路行驶。如果你赢了还有奖励。我希望你们可以去了解一下。但是这只是诸多计算机视觉例子中的一个，所以计算机视觉已经是一个非常热门的领域。</p><p><strong>3. 现在业内关于自动驾驶技术和实现的完成度，各家相比会有很大的差距吗？比如 Tesla 和 Geohot ？</strong></p><p>你问了无人驾驶汽车的市场和 Tesla 与 Geohot 的区别。如果你看看 Geohot 的新闻，就会得知 Geohot 已经决定终止无人驾驶汽车的项目，并转而做别的项目。这个决定回应了美国政府对于 Geohot 对用户是否真的安全的质疑。我不得不承认我今天看到这个消息很难过，因为我希望无人驾驶汽车技术短期内就有市场。相反，Tesla 已经建立了名为 Autopilot（自动导航）的无人驾驶技术。它没有完善到你可以在开车的时候睡觉，你必须保持注意力。但是如果你保持注意力，它能够按路线行驶的非常棒。我有一辆 Tesla 并且我每天都使用 Autopilot。Tesla 的技术曾基于 Mobileye，一家以色列公司，现在换成了 Nvdia, 一家美国的公司。因此你可以看到无人驾驶性能的进步因为具体的技术在进步。在今天的市场，大部分都是非无人驾驶技术，是驾驶辅助技术，汽车只有一种功能。Tesla 是最先进的一个，因为它是个很棒的公司，发明了 Autopilot。尽管如此，Autopilot 还不是最完美的无人驾驶汽车系统。然而，业界的进步十分迅速，接下来两三年，我期待更多主流的汽车公司也来做无人驾驶，并研发出类似的无人驾驶技术。</p><p><strong>4. 人类思维是智能思维运作的一种方式，您觉得探索其他智能的思维形式有价值吗？</strong></p><p>我甚至不知道人类思维运作的方式是否只有一种，这对我们是一个谜，因为没有人明白人类思维和智力的运作细节。然而探索其他形式绝对很重要。我们把象棋作为一个例子。在1997年，IBM 的深蓝打败了世界象棋冠军。但是 Kasparov，当时的冠军，思考和下棋的方式与 IBM 的电脑完全不同。Kasparov 非常善于观察棋子位置并进行理解。因此能够提前于对手思考几百手，但不能达到几十万。IBM 的深蓝不善于理解棋子的位置。但是他能够算出数亿种位置并比人类棋手想的更远。正是因为这个我们称之为蛮力的能力，我们观察许许多多的棋子位置，深蓝最终超越了最棒的棋手并创造了历史。我解释这个例子的原因是，通常机器的解决方法和人类或生物的解决方法有些不同。例如，鸟需要振翅才能飞翔，但是飞机不需要。你们应该对于飞机不需要拍打翅膀而感到高兴。因此在你设计计算机的解决方法时，要意识到不同之处。如果你们学习优达学城的机器学习工程师纳米学位，你们会发现也有相似之处，最重要的相似之处就是今天最好的人工智能计算机与人都通过经验来进行学习。因此你们会看到计算机解决方法与生物解决方法有时是相同的，有时是不同的。</p><p><strong>5. 优达学城在中国市场推出纳米学位之后，有获得学位的学员通过优达学城的合作项目，拿到滴滴等企业的 offer 吗？</strong></p><p>优达学城的纳米学位已经让400多人找到了工作，现在我们在中国也开设了纳米学位。我们使毕业生进入了谷歌中国，还拥有滴滴和其他中国公司作为招聘合作伙伴。我们甚至不知道所有因为纳米学位而获得工作的人有多少，因为有些学员没有告知我们就直接申请了职位。但是我可以向你们承诺，我们的合作企业很乐意为我们的毕业生提供高优先级。比如说在印度，电子商务领导者 Flipkart 公司现在甚至不需要面试就可以雇佣优达学城的学员，他们发现我们的毕业生在公司中也是佼佼者。所以只要你从纳米学位毕业，即使你的成绩不是特别突出，我也可以担保这件事。如果你不能在中国找到一份工作，我会感到很吃惊。</p><p><strong>6. 你好，教授，你认为未来人工智能会颠覆哪些行业？哪些行业会受益？</strong></p><p>我认为人工智能会影响所有人们做重复性工作的行业，包括高薪人群，例如律师和医生。我认为任何重复性工作都可以为机器学习提供数据。如果给机器学习系统足够的时间学习，它最终会像人类做的一样好。例如，IBM Watson 被保险公司用做顾客的线上顾问，它的工作是把浏览网页的用户转换成付费客户。Watson 的顾客转换率比人类电话销售高出20个百分点。在我们自己的公司，我们开始使用人工智能作为评分辅助。在我们的试点项目中，我们发现有人工智能辅助的评分人员的评分效率提升了一倍，报告也写的更快更好。我还可以举出无数个例子。我认为出租车司机也是过去的产物，包括优步司机和滴滴司机，因为无人驾驶汽车会比人力更便宜。医生如果使用人工智能做辅助，将会更有效地诊断、做出治疗决定。他们会学习的更快更持久，患者也会从中受益。现在，诊断皮肤癌的人工智能系统，在探测皮肤癌的稳定性方面，打败了世界上最好的肿瘤医生。通过看图片来了解哪里有癌症的放射科医生也处于同样的境地。这些只是例子。我认为最大的进步是人工智能能够提高任何做重复性工作的人的工作效率几百倍。</p><p><strong>7. 我是一名普通的程序员，我要怎样做才能加入机器学习和人工智能领域？</strong></p><p>如果你想加入机器学习和人工智能领域，但现在只是一名普通的程序员，我有一个简单的建议，就是学习我们的纳米学位项目，了解机器学习和人工智能背后的原理。我们的纳米学位项目由业界顶尖专家亲自教授，而且唯一的报名要求就是扎实的编程技能和良好的数学知识。如果你有兴趣，现在就去报名吧。</p><p><strong>8. 如果未来有一天，算法足够强大，AI 可以比我们自己做出更好的决策。我们应该放弃自主意识，让 AI 接管吗？</strong></p><p>我不会只是因为 AI 能做出更好的决策，就放弃我的自主意识。我想我们创建 AI 的目的，是让它为人类服务，而不是取代人类。我想很重要的一点是， 智能 AI 可以让我们更聪明，更好地让我们完成自己的工作。机器和 AI 可以帮助我们，让我们的知识更丰富，记忆力更好，更快地分享信息和经验。所以对于 AI，我不会持悲观态度，我实际上很乐观。从这个方面看，我们人类保持终身学习会越来越重要。AI 会越来越聪明，我们也要不断学习，不被落下。这也是我们创办优达学城的原因之一。我们想要让教育平民化，让世界上的每一个人都能获得最优质的教育。</p><p><strong>9. Siri、Google now、IBM Watson、Cortana 这些 AI 里面，谁最聪明？</strong></p><p>我并不觉得可以说特定的哪一个最聪明，因为它们都擅长不同的领域。Google Now 能够全面了解你的喜好，并利用这些信息为你提供帮助。Siri 具有强大的语音识别系统，Amazon 和 Apple 中都有这样的功能，我很喜欢。IBM Watson 更擅长为拥有巨大数据集的大型公司解决企业问题，他们有专门的团队来协助企业在大型数据集中寻找信息。所以我认为每个 AI 系统都各有千秋，很难进行比较。Google 的无人驾驶汽车亦是如此，说起来它们不过就是更好驾驶的汽车，但这是一个快速兴起的领域，很多公司都翘首以待。</p><p><strong>10. 现在的人工智能离强人工智能还有多远？机器人什么时候能真正读懂人说的话、理解看到的东西、了解人类的情感，（深度）神经网络能做到这一点吗？</strong></p><p>现在的人工智能离强人工智能还很远，现在是专业化的人工智能。每一个人工智能系统精通一项任务，但是如果要它做一个不同的任务需要从零学起。这很重要因为我们不需要无人驾驶汽车会下象棋，我们也不需要飞机会投篮，这些是不同的领域。然而，现在的问题是机器人是否能够理解人类情感，我认为这需要很大的进步。现在在训练人工智能理解人类是高兴或沮丧，不舒服或疲惫，已经有了很大的进步。你们手机上的人工智能系统可以辨别你现在的心情，这个用最基本的人工智能系统就可以做到，只需要观察你贴图的频率，看微信的频率，走路的方式。我想说我对人类情感很感兴趣，但是我对机器情感并不感兴趣。我不需要我的人工智能有情绪，我不希望它生气或者开心，我不想来到厨房，发现我的冰箱爱上了我的洗碗机。它不愿意为我工作因为我昨天晚上对它发了脾气。我希望机器能够稳定工作，因此我认为人工智能机器不需要情感。</p><p><strong>11. 优达学城下一个将要推出的令人吃惊的课程是什么？就像现在的人工智能课程和无人驾驶车工程师课程一样。</strong></p><p>我们在优达学城，会继续追求推出只有在优达学城才能学到的内容的纳米学位。最近发现了一系列新科技，从无人机到机器学习在金融、医疗和很多其他领域的应用。我相信优达学城会起到独特的作用，给你带来最好的线上教育体验。</p><p><strong>12. 教授你好！请问从事机器学习工作，数学需要达到什么样的程度？有哪些数学知识是必须要掌握的？</strong></p><p>你需要一些基础的数学能力来学习机器学习，你要会代数，微积分，基础统计并且对于人工智能的学习保持热情。此外，你还要会编程。如果你不熟悉软件工程，不熟悉电脑编程，不要学机器学习，学其他更基础的纳米学位。但是你并不需要了解机器学习，机器学习的很棒的一点在于它的学习依靠直觉。如果你去看看机器学习纳米学位，在最开始有一个我们的工作人员 Louis S. 写的总结, 它会帮助你更好的适应机器学习，使得你理解得更容易。</p><p><strong>13. 基于学习的方法主导机器学习的根本原因是什么？它将如何与更传统的 AI 方法进行交互？</strong></p><p>机器学习主导的根本原因是它必须做到跟人类学习的方式类似。如果你想教小孩做正确的事情，你不能坐下来把生活规则一条一条写下来，这是不可能教会他的，相反，你应该让小孩从他自己的经历中学习。机器学习不是像我们曾经写代码一样来学习的，也是从经历中来学习，因此在很多领域都不那么做了。比如 Google 每天从数千亿的在线网页的数据集中学习，这些数据没有任何规则，但数据却存在规律。所以今天的机器学习是将人类的学习方式用在数据上得出结论，这比用常规的编程方式要更强大。</p><p><strong>14. 会 Python 的程序员，想进入AI、机器学习领域，应该从哪里开始入手？</strong></p><p>进入人工智能领域，Python 是完美的。Python 是一门很棒的编程语言。对于成为一名精通人工智能、机器学习的程序员所需处理的所有事情，我认为如果你知道如何编程，使用什么语言并不重要。如果你知道如何编程，你应该可以轻松地转换到其他语言。刚开始工作的时候，我用的是 C 和 C++，比起 Python，它们存在一些优点和许多缺点。C++ 当然更加高效。但是用来快速制作原型就会比较困难。后来的工作中，我开始使用 Python。现在，我更多的使用 Python，我也会使用 Matlab 和其他语言。在一定程度上，Python 更棒。你应该能够以任何语言，几乎是以同样的方式去实现基本概念。</p><p><strong>15. 人工智能可以运用在娱乐领域吗？比如拍摄电影。</strong></p><p>AI 很难实现的一点就是创新，困难的原因是创新是产生之前没有的新事物的艺术，因此很少有有创造力的人相关的数据。AI 善于做重复性任务比如开车，但是不善于发明一辆新车。因此说到创造新电影，我相信很长一段时间内，人们会比人工智能做的更好，并且应该相信建立的人工智能越多，人类会变得更有创造力。在创造力和机械作业的对抗中，人类会赢得创造力的这一边。</p><p><strong>16. 哪个城市会最早允许无人驾驶车上路？</strong></p><p>有人猜测：把无人驾驶汽车投入日常使用的美国城市有优达学城总部所在的山景城，或者德州的奥斯丁。对于中国，中国的公司如百度、滴滴，已经进入无人驾驶的行业，我猜测他们将在北京或者上海试点。至于哪里会投入商业化应用，例如无人驾驶服务，无人驾驶的滴滴汽车，无人驾驶的优步汽车，我们无法得知。</p><p><strong>17. 在接下来的几年里，您认为人类有机会在围棋上打败谷歌的 AlphaGo 吗？</strong></p><p>我认为在围棋这个游戏上，已经 Game Over 了。我也不认为人们会再有机会战胜 AlphaGo。原因是，AlphaGo 才刚刚开始练习了几百万局游戏。如果他有足够的时间学习几亿局游戏呢？我觉得人类是不可能像这样成长提高的。所以在他能成为一个更好的 AI 的事实下，围棋已经不在挑战名单上了。</p><p><strong>18. 我想知道未来的硬件技术有什么新的要求，以满足AI的趋势？</strong></p><p>如今人工智能发展的一大激活因素是计算机的规模。10年以前，这是不可能的。 10年前我们的计算机系统规模最大都不如老鼠的大脑，现在它们比人类的大脑更大。这使得一切都变的不同了。人工智能领域大多数发现，世界上最好的算法，在30年前就已经出现，但现在才开始兴起的原因是因为计算机变得越来越快。展望未来，计算机必须更快，更便宜，更加关注浮点数的运算，可以大量相互连接。在所有这些事情正在发生的现在，计算机公司（比如我们知道的谷歌和亚马逊）之间最大的区别，对 AI 最重要的，是处理浮点运算的能力。因此，GPU（显卡，图形处理器） 和浮点运算能力是人工智能的必要条件和驱动力。</p><p><strong>19. 优达学城有机器学习、AI、无人驾驶车课程。它们看起来都差不多，我应该先选择哪一个来入门呢？</strong></p><p>选择哪个纳米学位课程因人而异，而且涉及很多因素。我觉得最重要的一点是你对哪个最感兴趣。但你也可以看看先修条件。我觉得机器学习、AI、数据科学、无人驾驶汽车课程以及我们的其他纳米学位课程，它们的先修要求有很大区别。所以我建议：先看要求，然后申请，看你能否加入，以及看你最感兴趣的领域是哪个。因为，每个纳米课程的时间都略长，如果你对所选的主题不感兴趣，没有动力，你很难成功取得纳米学位。</p><p><strong>20. 人工智能和深度学习是否会应用于未来的虚拟现实和增强现实？</strong></p><p>这个问题问得好，我们什么时候能够将人工智能应用于虚拟现实或增强现实领域的深度学习呢。这是取得进步的好方法之一。如果你能想到一个不错的应用，我强烈建议你立马去实现它，因为你可能会是第一个想到这个想法的人，你可能会创办一个有前景的公司。我们在硅谷建立公司的方式是，首先发现不明显的业务与技术的组合，这些组合是有价值的，只是还没有人发现。所以我强烈推荐，如果你想成功，那就找到不同领域之间的需求，例如深度学习和增强现实，看看你能否找到一些有趣的东西。我觉得，还有我的儿子也认为，当前最酷的要属 Pokémon Go 了，它在很大程度上将机器学习应用于大规模增强现实游戏。也许你也会是中国的下一代 Pokémon Go 发明者，我们期待看到你取得成功。</p><p><strong>21. AI 纳米学位课程和《人工智能：一种现代方法》（第三版）(Artificial Intelligence A Modern Approach Third Edition) 之间的差别是什么？</strong></p><p>纳米学位课程更注重基本技术，没有 Stuart Russell 和 Peter Novick 编著的《人工智能：一种现代方法》那么广泛。我喜欢这本书。这本书目前正在更新，很快最新版就会上市了。我一直在关注。但是在 AI 纳米学位课程中，我们的关注面更窄一些。我们相信能应用到当今行业的才是最重要的。例如，这本书中讲到多智能体系统中的代理，但与深度学习、机器人技术和计算机视觉相比，它在行业中的应用相对较少。我们更侧重于自然语言机器人、机器学习和计算机视觉领域。</p><p><strong>22. 教授，你觉得 MOOC 在将来会取代传统大学吗？</strong></p><p>我不认为 MOOC 将取代传统大学。MOOC 可以说将学习几乎带给了很多之前无法接触到一些课程的人。我们现在已有 195 个国家的学习者注册学习我们的课程，包括孟加拉或秘鲁，这些可能没有较为优质大学的国家。好有很多一般大学生年龄之外的人群学习我们的课程，25、30、35、40 岁都有，使所有人都有机会上大学。每当人们问到 MOOC 是否会取代传统大学这个问题，我总会告诉他们，电视并没有取代收音机，电视转播的体育比赛永远不会取代体育场，电影从来没有取代剧院。这些新技术只是把已经成熟的东西提供给更广泛的受众。优达学城的使命是将教育平民化。我们相信，如果世界上的每个人都能获得一流的教育，我们一定能够将世界 GDP 翻一番。我们希望通过网络将受教育的机会提供给每一个人。MOOC 和大学可以说各有千秋，谁都不会取代谁。</p><p><strong>23. 你是否考虑过在这个直播中使用机器翻译服务？AI 技术目前的局限或瓶颈是什么？</strong></p><p>很遗憾，这次沙龙没有使用在线机器翻译服务，我们还没能做到这一点。但是你可以创办一个这样的公司。你需要识别声音并自动翻译每种语言，要是能实现这样的功能当然很好。所以你不妨学习纳米课程，然后将它变为现实。</p><p><strong>24. 优达学城（Udacity）和 edX、Coursera作为 MOOC 的三驾马车，在未来的发展上，优达学城（Udacity）和其他两家会有何不同？</strong></p><p>我们爱 Coursea，爱 MOOC、edX 和所有人。优达学城的独特之处在于我们合作的都是行业领先的专家与企业。几乎硅谷的每一家领先公司都是我们的合作伙伴。还有另外一个独特之处在于，我们切实希望为学生找到工作。学生想要学习某些东西，以及从 edX 和 Coursera 大学学习的原因有很多。但是从我们创办以来所取得的成绩来说，我们基本上会为每位学生找到新工作，而且是很有前途的新工作。这就是为什么我们有求职服务，有导师服务，提供项目驱动的练习，从全球最好的公司开发内容或教学大纲，以及有那么多的求职合作伙伴。</p><p><strong>25. 有人认为你的答案是 AI 读取问题，然后自动生成回答，这是真的吗？</strong></p><p>如果有人认为我是通过人工智能 (AI) 生成回答，他/她可能是正确的。我希望是。如果我现在能躺在床上，由机器完成所有的工作岂不是更好。不过我觉得我们离实现这一切不远了。根据之前斯坦福大学的一份报告，如果 AI 系统听我讲话一年，它就能预测出我要讲的 90% 的内容。就像我刚才讲的东西，有些东西我确实重复说过很多次。如果你结婚了，你就知道配偶很多时候能够预测对方要说的话。所以何不构建一个 AI 系统，观察我们做事情的方式，然后能够帮助我们完成 90% 的工作，这样我们就不必一次次重复同样的事情，这将非常神奇，也是一个新的创业点子。</p><p><strong>26. 请问机器学习的工程师每天都在做什么事？他们的工作内容是什么？用什么软件，工具？</strong></p><p>机器学习工程师是当今公司中最炙手可热的人才，因为每家公司都逐渐意识到他们拥有大量的数据，而且可以对这些数据的信息加以利用。所以，他们的工作是观察数据集，可能是文本数据集、图像数据资产、财务数据集，然后使用机器学习工具对这些数据进行分析。在应用时，你必须了解如何清理数据，并使它们变得可用，处理数据格式和数据缺失的大问题。然后，你必须使用地球上最好的工具，来可视化这些数据并解释结果。借助可视化结果，你可以帮助公司的首席执行官和领导者了解公司的运营状况。这非常非常有趣。有些机器学习工程师会直接将机器学习软件融合到产品中。例如，Google 搜索引擎每天使用机器学习重新安排搜索结果。Amazon 的网页和阿里巴巴的网页使用机器学习重新排列产品，以使你得到最优相关产品推荐。所以这也是机器学习工程师工作的一部分。那么可以使用的工具有哪些的。这可就多了，参加纳米学位课程了解它们吧。</p><p><strong>27. 结语</strong></p><p>我要感谢大家在线这么久，让我们的对话如此愉快。感谢你们提出的问题。我爱你们，爱中国，也希望让这个世界变得更好。我真的希望优达学城提供的纳米学位课程可以对你们的生活产生积极的影响。我可以向你保证，我们有成千上万的学生发邮件说，我们让他们的生活变得更好。我真的希望你们会成为下一个。谢谢大家的聆听，祝你们度过一个美好的夜晚。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前段时间 &lt;strong&gt;知乎Live&lt;/strong&gt; 上有一场&lt;a href=&quot;https://www.zhihu.com/lives/772099611425779712&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;大咖级的Live&lt;/a&gt;，Udacity（优达学城）的创始人、无人驾驶车的开创性人物塞巴斯蒂安·特龙（Sebasetian Thrun）做了一次Live分享！正好最近在读 &lt;a href=&quot;https://book.douban.com/subject/26633041/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;em&gt;Machines of Loving Grace&lt;/em&gt;&lt;/a&gt; ，书中提到了不少关于Thrun和Google无人车的故事。以下回顾整理了prof.Thrun在Live中的演讲内容。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机科学" scheme="http://xiekai.site/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT22 蔚蓝的蓝</title>
+    <link href="http://xiekai.site/2015/12/09/PT22_%E8%94%9A%E8%93%9D%E7%9A%84%E8%93%9D/"/>
+    <id>http://xiekai.site/2015/12/09/PT22_蔚蓝的蓝/</id>
+    <published>2015-12-09T08:11:37.000Z</published>
+    <updated>2018-02-07T11:58:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/30.jpg"><a id="more"></a><p>两人会面时，这个学物理的男生问我：『你知道「蔚蓝」的意思吗？你知道「蔚」的意思吗？』我傻眼了，第一个念头，『蔚蓝』就是『蔚蓝』，还需要问吗？第二个念头……诚实地说，啊，我还真不知道『蔚』，或者『蔚蓝』，是什么意思。</p><p><code>*本篇内容摘自龙应台散文《蔚蓝》</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/30.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT21 从取景器中观察SD卡</title>
+    <link href="http://xiekai.site/2015/12/07/PT21_%E4%BB%8E%E5%8F%96%E6%99%AF%E5%99%A8%E4%B8%AD%E8%A7%82%E5%AF%9FSD%E5%8D%A1/"/>
+    <id>http://xiekai.site/2015/12/07/PT21_从取景器中观察SD卡/</id>
+    <published>2015-12-07T08:10:41.000Z</published>
+    <updated>2018-02-07T11:58:25.732Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/28.jpg"><a id="more"></a><p>用相机进行微距摄影，如果不借助特殊的镜头，在你靠近微小物体时，它会失焦。</p><p>特别是你拿它来拍摄SD卡时，『你越想看清它，它就越模糊』，就像这当中存储的记忆，太模糊可能是因为你离它很近。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/28.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT20 无题</title>
+    <link href="http://xiekai.site/2015/12/06/PT20_%E6%97%A0%E9%A2%98/"/>
+    <id>http://xiekai.site/2015/12/06/PT20_无题/</id>
+    <published>2015-12-06T08:10:17.000Z</published>
+    <updated>2018-02-07T11:58:15.232Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/27.jpg"><a id="more"></a><p>『How dare you make fun of my hat?』</p><p><code>*照片来自VSCO    摄影：hippydogblog</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/27.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT19 When Microsoft introducing the Display Dock</title>
+    <link href="http://xiekai.site/2015/12/04/PT19_When%20Microsoft%20introducing%20the%20Display%20Dock/"/>
+    <id>http://xiekai.site/2015/12/04/PT19_When Microsoft introducing the Display Dock/</id>
+    <published>2015-12-04T08:01:19.000Z</published>
+    <updated>2018-02-07T11:58:04.916Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/23_1.jpg"><a id="more"></a><p>微软用一个『Display Dock』将手机与外设连接起来了；</p><img src="/assets/23_2.jpg"><p>那么，如果无线传输技术飞速发展，以后，我们『手机』上的内容就可以在任何一种display上得到扩展了，并且我们可以直接对这些diplay上的内容进行操作。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/23_1.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT18 pudding家二十年的油画</title>
+    <link href="http://xiekai.site/2015/12/02/PT18_pudding%E5%AE%B6%E4%BA%8C%E5%8D%81%E5%B9%B4%E7%9A%84%E6%B2%B9%E7%94%BB/"/>
+    <id>http://xiekai.site/2015/12/02/PT18_pudding家二十年的油画/</id>
+    <published>2015-12-02T08:01:52.000Z</published>
+    <updated>2018-02-07T11:57:45.567Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/25.jpg"><a id="more"></a><p>据pudding说，他爸爸的爸爸的弟弟在二十年前曾是个痴迷画画的家伙（现在已经退休，在家赋闲养花种草），当年他就画了好多好多的油画。</p><p>其中的一副就描绘了他从小向往却永远也没有机会生活的山林面貌。画中水畔伫立一人，正是他眼中的爱人；而水面中隐隐倒映的，是他自己的模样。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/25.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT17 深海与深空</title>
+    <link href="http://xiekai.site/2015/12/01/PT17_%E6%B7%B1%E6%B5%B7%E4%B8%8E%E6%B7%B1%E7%A9%BA/"/>
+    <id>http://xiekai.site/2015/12/01/PT17_深海与深空/</id>
+    <published>2015-12-01T01:55:13.000Z</published>
+    <updated>2018-02-07T11:57:33.647Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/22.jpg"><a id="more"></a><p>深海很远，深空很远；</p><p>深海在地，深空在天；</p><p>深海寂静，深空宁静；</p><p>深海是海军蓝，深空是科技蓝；</p><p>深海里有发光的水母和闪亮的生物，</p><p>深空中有漫游的UFO和耀眼的星星；</p><p>深海与深空都浸润着神秘与幻想。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/22.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT16 哇！好黑一个洞</title>
+    <link href="http://xiekai.site/2015/11/29/PT16_%E5%93%87%EF%BC%81%E5%A5%BD%E9%BB%91%E4%B8%80%E4%B8%AA%E6%B4%9E/"/>
+    <id>http://xiekai.site/2015/11/29/PT16_哇！好黑一个洞/</id>
+    <published>2015-11-29T01:54:17.000Z</published>
+    <updated>2018-02-07T11:57:24.537Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/20.jpg"><a id="more"></a><p>『嘿，我发现了一个洞口！』猫头鹰露出了惊讶的表情。</p><p>『那，里面有什么呢？』</p><p>『我不清楚，或许在洞壁上安静地栖息着一群色彩斑斓的蝴蝶，或许在洞内寂静的空气中有蝙蝠来回穿行，又或许穿过狭长的洞穴后，又是一祥和的桃花源。』</p><p>『那么，就进去看看吧！』</p><p><code>*照片来自VSCO    摄影：tyesk00</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/20.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT15 飞走的梧桐叶</title>
+    <link href="http://xiekai.site/2015/11/27/PT15_%E9%A3%9E%E8%B5%B0%E7%9A%84%E6%A2%A7%E6%A1%90%E5%8F%B6/"/>
+    <id>http://xiekai.site/2015/11/27/PT15_飞走的梧桐叶/</id>
+    <published>2015-11-27T01:53:52.000Z</published>
+    <updated>2018-02-07T11:57:14.065Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/18.jpg"><a id="more"></a><p>昨天下雨，学校梧桐树上的叶子被风雨打扒在了地上。</p><p>可是第二天，在学校的操场上、主干道、教学楼和宿舍楼下，我却找不到枯黄零落的叶子。</p><p>他们去哪里了呢？我猜，他们可能是迎着今天清晨大好的阳光，飞到天上晒太阳去了吧。</p><p>嘿，人人都爱冬日里的阳光呀！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/18.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT14 白头发黑胡子老爷爷</title>
+    <link href="http://xiekai.site/2015/11/25/PT14_%E7%99%BD%E5%A4%B4%E5%8F%91%E9%BB%91%E8%83%A1%E5%AD%90%E8%80%81%E7%88%B7%E7%88%B7/"/>
+    <id>http://xiekai.site/2015/11/25/PT14_白头发黑胡子老爷爷/</id>
+    <published>2015-11-25T01:53:16.000Z</published>
+    <updated>2018-02-07T11:57:04.912Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/16.jpg"><a id="more"></a><p>『为什么你要这么盯着我？』</p><p>『因为你是白头发黑胡子老爷爷呀！』</p><p><code>*照片来自VSCO    摄影：kimbiel</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/16.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT13 根据叶子判断四季</title>
+    <link href="http://xiekai.site/2015/11/24/PT13_%E6%A0%B9%E6%8D%AE%E5%8F%B6%E5%AD%90%E5%88%A4%E6%96%AD%E5%9B%9B%E5%AD%A3/"/>
+    <id>http://xiekai.site/2015/11/24/PT13_根据叶子判断四季/</id>
+    <published>2015-11-24T01:52:58.000Z</published>
+    <updated>2018-02-07T12:06:25.714Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/15.jpg"><a id="more"></a><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (leaf.color==green)    </span><br><span class="line">spring comes;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (leaf.temperture&gt;=<span class="number">36</span>℃)    </span><br><span class="line">summer comes;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (leaf.color==yellow)    </span><br><span class="line">autumn comes;</span><br><span class="line"></span><br><span class="line"><span class="function">only <span class="title">if</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">leaf_1 is hanging on a tree &amp;&amp;</span></span></span><br><span class="line"><span class="function"><span class="params">leaf_2 is dancing in the wind &amp;&amp;</span></span></span><br><span class="line"><span class="function"><span class="params">leaf_3 is lying on the grass &amp;&amp;</span></span></span><br><span class="line"><span class="function"><span class="params">leaf_4 is sleeping near a garbage bin &amp;&amp;</span></span></span><br><span class="line"><span class="function"><span class="params">…</span></span></span><br><span class="line"><span class="function"><span class="params">leaf_n is shivering <span class="keyword">and</span> getting cold)</span></span></span><br><span class="line"><span class="function">then    winter comes</span>;</span><br></pre></td></tr></table></figure><p><code>*以上代码为伪代码，仅供娱乐</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/15.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT12 拍照时旁边有人撞了我一下</title>
+    <link href="http://xiekai.site/2015/11/23/PT12_%E6%8B%8D%E7%85%A7%E6%97%B6%E6%97%81%E8%BE%B9%E6%9C%89%E4%BA%BA%E6%92%9E%E4%BA%86%E6%88%91%E4%B8%80%E4%B8%8B/"/>
+    <id>http://xiekai.site/2015/11/23/PT12_拍照时旁边有人撞了我一下/</id>
+    <published>2015-11-23T01:52:26.000Z</published>
+    <updated>2018-02-07T11:56:45.730Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/14.jpg"><a id="more"></a><p>我在街拍，正对焦时旁边有人撞了我一下。于是我的世界一片黑白，恍恍惚惚。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/14.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT11 我在高楼窗台俯瞰老房子</title>
+    <link href="http://xiekai.site/2015/11/21/PT11_%E6%88%91%E5%9C%A8%E9%AB%98%E6%A5%BC%E7%AA%97%E5%8F%B0%E4%BF%AF%E7%9E%B0%E8%80%81%E6%88%BF%E5%AD%90/"/>
+    <id>http://xiekai.site/2015/11/21/PT11_我在高楼窗台俯瞰老房子/</id>
+    <published>2015-11-21T01:51:24.000Z</published>
+    <updated>2018-02-07T11:56:37.784Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/12.jpg"><a id="more"></a><p>在高楼窗台俯瞰老房子，就像身旁围坐着『系厚实齐整麻花辫』的老奶奶和『戴墨镜拄拐杖』的老爷爷，他们聊着为什么今天的新邻居个个长得又白又高。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/12.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT10 用一个APP装下所有</title>
+    <link href="http://xiekai.site/2015/11/20/PT10_%E7%94%A8%E4%B8%80%E4%B8%AAAPP%E8%A3%85%E4%B8%8B%E6%89%80%E6%9C%89/"/>
+    <id>http://xiekai.site/2015/11/20/PT10_用一个APP装下所有/</id>
+    <published>2015-11-20T01:50:56.000Z</published>
+    <updated>2018-02-07T12:00:23.781Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/11.JPG"><a id="more"></a><p>按照上面的步骤，让我们一起来了解一下这款全新的 app —『AOT』!<br>(App of Things)</p><p>他可以把你生活中的一切所见收纳其中，依靠人工智能算法有效地管理各种物品。比如当你第二天起床时，他会安排你今天的衣服品牌以及刷牙要用的牙膏。</p><p>AOT就是你高品质生活的起点 ：）</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/11.JPG&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT09 自拍</title>
+    <link href="http://xiekai.site/2015/11/18/PT09_%E8%87%AA%E6%8B%8D/"/>
+    <id>http://xiekai.site/2015/11/18/PT09_自拍/</id>
+    <published>2015-11-18T01:50:10.000Z</published>
+    <updated>2018-02-07T12:00:30.166Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/9.JPG"><a id="more"></a><p>人民公园里，镜头小姐睁大了眼，想让闪光灯先生给她照个相。</p><p>据说后来他们在一起了。一个会发光，一个会发现光。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/9.JPG&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT08 好像少了一点音乐</title>
+    <link href="http://xiekai.site/2015/11/17/PT08_%E5%A5%BD%E5%83%8F%E5%B0%91%E4%BA%86%E4%B8%80%E7%82%B9%E9%9F%B3%E4%B9%90/"/>
+    <id>http://xiekai.site/2015/11/17/PT08_好像少了一点音乐/</id>
+    <published>2015-11-17T01:49:59.000Z</published>
+    <updated>2018-02-07T11:56:00.336Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/7.jpg"><a id="more"></a><p>如果你愿意按下长板凳上的『播放键』。</p><p><code>*照片来自VSCO    摄影：rachel</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/7.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT07 马里奥腹黑论</title>
+    <link href="http://xiekai.site/2015/11/16/PT07_%E9%A9%AC%E9%87%8C%E5%A5%A5%E8%85%B9%E9%BB%91%E8%AE%BA/"/>
+    <id>http://xiekai.site/2015/11/16/PT07_马里奥腹黑论/</id>
+    <published>2015-11-16T01:49:39.000Z</published>
+    <updated>2018-02-07T12:02:07.182Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/8.png"><a id="more"></a><p>自从任天堂把马里奥设置成了腹黑的角色，蘑菇家族便与马里奥有了不解的冤仇。</p><p>马里奥专挑带有剧毒的Super Mushroom进食，据说这种蘑菇促进了他的生长发育。他还肆意碾压了无数善良的Goomba导致新生的Goomba都成了无父无母的孤儿。</p><p>细想来，马里奥用蘑菇成就了的自我毁灭了蘑菇本身。</p><p>而自从听了这个悲惨的故事之后，我再也不敢玩超级玛丽了。</p><img src="/assets/goomba_flash.gif"><p><code>*Super Mushroom的灵感来源于Amanita muscaria（毒蝇鹅膏菌撒），一种典型毒菇；Goomba的灵感来源于shiitake（香菇），一种食用真菌。</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/8.png&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT06 如何抓拍奔跑的狗狗？</title>
+    <link href="http://xiekai.site/2015/11/15/PT06_%E5%A6%82%E4%BD%95%E6%8A%93%E6%8B%8D%E5%A5%94%E8%B7%91%E7%9A%84%E7%8B%97%E7%8B%97%EF%BC%9F/"/>
+    <id>http://xiekai.site/2015/11/15/PT06_如何抓拍奔跑的狗狗？/</id>
+    <published>2015-11-15T01:49:21.000Z</published>
+    <updated>2018-02-07T11:51:19.532Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/6.jpg"><a id="more"></a><p>你要和狗狗保持相对静止，这样才会有背景糊狗不糊的效果。</p><p>当然前提是你最好拿过螃蟹赛跑、原地旋转和飞碟碰碰车等相关比赛的冠军。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/6.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PT05 香肠歌</title>
+    <link href="http://xiekai.site/2015/11/14/PT05_%E9%A6%99%E8%82%A0%E6%AD%8C/"/>
+    <id>http://xiekai.site/2015/11/14/PT05_香肠歌/</id>
+    <published>2015-11-14T01:49:01.000Z</published>
+    <updated>2018-02-07T11:51:12.914Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/assets/5.jpg"><a id="more"></a><p>在拿破仑的故乡科西嘉岛驻扎着法国外籍兵团的第二伞兵团。在这个团结的兵团里生活着快乐的士兵，唱着他们振奋人心的军歌《香肠歌》：</p><p>『Nous sommes des dégourdis, Nous sommes des lascars, Des types pas ordinaires, Nous avons souvent notre cafard, Nous sommes des Légionnaires…（我们是闪亮的礼花，我们带着红色流苏，我们的军旗不寻常，我们是让人闻风丧胆的军团士兵…）』</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/assets/5.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="看图说话" scheme="http://xiekai.site/categories/%E7%9C%8B%E5%9B%BE%E8%AF%B4%E8%AF%9D/"/>
     
     
   </entry>
