@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>拇指盒｜旷视文本检测与识别综述笔记 - 布丁布瓜</title><meta name="description" content="AI，游戏，摄影，随笔。有关理智与趣味的分享。"><meta property="og:title" content="拇指盒｜旷视文本检测与识别综述笔记" />
+<meta property="og:description" content="Title：Scene Text Detection and Recognition: The Deep Learning Era [IJCV&#39;20]" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shakex.github.io/thumbbox2.html/" />
+<meta property="og:image" content="https://shakex.github.io/thumbbox2.html/featured-image.jpg"/>
+<meta property="article:published_time" content="2021-01-23T20:44:08+08:00" />
+<meta property="article:modified_time" content="2021-01-23T20:44:08+08:00" /><meta property="og:site_name" content="布丁布瓜" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://shakex.github.io/thumbbox2.html/featured-image.jpg"/>
+<meta name="twitter:title" content="拇指盒｜旷视文本检测与识别综述笔记"/>
+<meta name="twitter:description" content="Title：Scene Text Detection and Recognition: The Deep Learning Era [IJCV&#39;20]"/>
+<meta name="application-name" content="CodeIT">
+<meta name="apple-mobile-web-app-title" content="CodeIT"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shakex.github.io/thumbbox2.html/" /><link rel="prev" href="https://shakex.github.io/thumbbox1.html/" /><link rel="next" href="https://shakex.github.io/thumbbox2.html/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "拇指盒｜旷视文本检测与识别综述笔记",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/shakex.github.io\/thumbbox2.html\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/shakex.github.io\/thumbbox2.html\/featured-image.jpg",
+                            "width":  1280 ,
+                            "height":  543 
+                        }],"genre": "posts","keywords": "computer vision, ocr, paper","wordcount":  1507 ,
+        "url": "https:\/\/shakex.github.io\/thumbbox2.html\/","datePublished": "2021-01-23T20:44:08+08:00","dateModified": "2021-01-23T20:44:08+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "pudding"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="布丁布瓜">布丁布瓜</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/categories/"> 栏目 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/thumbbox2.html/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="布丁布瓜">布丁布瓜</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/categories/" title="">栏目</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/thumbbox2.html/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">拇指盒｜旷视文本检测与识别综述笔记</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>pudding</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8B%87%E6%8C%87%E7%9B%92/"><i class="far fa-folder fa-fw"></i>拇指盒</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-23">2021-01-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1507 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/thumbbox2.html/" class="leancloud_visitors" data-flag-title="拇指盒｜旷视文本检测与识别综述笔记">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/thumbbox2.html/featured-image.jpg"
+        data-srcset="/thumbbox2.html/featured-image.jpg, /thumbbox2.html/featured-image.jpg 1.5x, /thumbbox2.html/featured-image.jpg 2x"
+        data-sizes="auto"
+        alt="/thumbbox2.html/featured-image.jpg"
+        title="/thumbbox2.html/featured-image.jpg" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a>
+      <ul>
+        <li><a href="#basic-pipeline">Basic pipeline</a></li>
+        <li><a href="#challenges-for-general-text-detection-and-recognition">Challenges for general text detection and recognition</a></li>
+      </ul>
+    </li>
+    <li><a href="#methods-before-dl">Methods before DL</a>
+      <ul>
+        <li><a href="#text-detection">Text detection</a></li>
+        <li><a href="#text-recognition">Text recognition</a></li>
+        <li><a href="#end-to-end-detectionrecognition">End-to-end (detection+recognition)</a></li>
+      </ul>
+    </li>
+    <li><a href="#methods-based-on-dl">Methods based on DL</a>
+      <ul>
+        <li><a href="#text-detection-1">Text detection</a></li>
+        <li><a href="#text-recognition-1">Text recognition</a></li>
+        <li><a href="#end-to-end-detectionrecognitiontext-spotting">End-to-end (Detection+Recognition/Text Spotting)</a></li>
+        <li><a href="#auxiliary-techniques-that-support-detection-and-recognition">Auxiliary techniques that support detection and recognition</a></li>
+      </ul>
+    </li>
+    <li><a href="#datasets">Datasets</a></li>
+    <li><a href="#evaluation">Evaluation</a>
+      <ul>
+        <li><a href="#detection-metrics">Detection Metrics</a></li>
+        <li><a href="#recognition-metrics">Recognition Metrics</a></li>
+      </ul>
+    </li>
+    <li><a href="#applications">Applications</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<h3 id="basic-pipeline">Basic pipeline</h3>
+<ul>
+<li>Detection+Recognition</li>
+<li>End-to-end</li>
+</ul>
+<p>
+
+
+
+
+<figure><a class="lightgallery" href="/thumbbox2.html/image-20201107140006891.png" title="fig1" data-thumbnail="/thumbbox2.html/image-20201107140006891.png" data-sub-html="<h2>image-20201107140006891</h2><p>fig1</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="image-20201107140006891.png"
+            data-srcset="/thumbbox2.html/image-20201107140006891.png, image-20201107140006891.png 1.5x, /thumbbox2.html/image-20201107140006891.png 2x"
+            data-sizes="auto"
+            alt="/thumbbox2.html/image-20201107140006891.png" />
+    </a><figcaption class="image-caption">fig1</figcaption>
+    </figure></p>
+<h3 id="challenges-for-general-text-detection-and-recognition">Challenges for general text detection and recognition</h3>
+<ul>
+<li><strong>Diversity and variability</strong>
+<ul>
+<li>different languages/color/fonts/size/orientations/shapes</li>
+</ul>
+</li>
+<li><strong>Complexity and interference of background</strong>
+<ul>
+<li>similar patterns/occlusions</li>
+</ul>
+</li>
+<li><strong>Imperfect image conditions</strong>
+<ul>
+<li>Low resolution/shot angle/blurred(unfocused)/noise/light</li>
+</ul>
+</li>
+</ul>
+<h2 id="methods-before-dl">Methods before DL</h2>
+<h3 id="text-detection">Text detection</h3>
+<ul>
+<li>
+<p>CCA (Connected Components Analysis)：连通域分析法</p>
+<ol>
+<li>
+<p>提取出包含文本的候选区域（color clustering/extreme region extration）</p>
+</li>
+<li>
+<p>从候选区域中过滤背景，即分割出文本类（特征提取，分类/分割）</p>
+<ul>
+<li>特征：MSRE/SWT/SIFT/SURF/LBP/灰度共生矩阵等</li>
+<li>分类器：Kmeans/KNN/SVM/NN/DecisionTree等</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p><a href="https://www.semanticscholar.org/paper/Text-Localization-in-Natural-Images-Using-Stroke-Huang-Lin/1d40b767d8c5ef7a93ca5cc5b0dbb850b8a0cd2e" target="_blank" rel="noopener noreferrer">Huang et al., 2013</a>; <a href="http://cmp.felk.cvut.cz/~matas/papers/neumann-text-accv10.pdf" target="_blank" rel="noopener noreferrer">Neumann and Matas, 2010</a>; <a href="http://cmp.felk.cvut.cz/~matas/papers/neumann-text-accv10.pdf" target="_blank" rel="noopener noreferrer">Epshtein et al., 2010</a>; <a href="http://pages.ucsd.edu/~ztu/publication/cvpr12_textdetection.pdf" target="_blank" rel="noopener noreferrer">Tu et al., 2012</a>; <a href="https://arxiv.org/pdf/1301.2628.pdf" target="_blank" rel="noopener noreferrer">Yin et al., 2014</a>; <a href="http://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC3337634&amp;blobtype=pdf" target="_blank" rel="noopener noreferrer">Yi and Tian, 2011</a>; <a href="https://www.computer.org/csdl/proceedings-article/icpr/1998/85121497/12OmNxFsmFT" target="_blank" rel="noopener noreferrer">Jain and Yu, 1998</a></p>
+<ul>
+<li>
+<p>SW (Siliding window)：滑动窗口法</p>
+<ol>
+<li>利用不同大小的滑动窗口对窗口区域进行二分类（包含/不包含文本）</li>
+<li>通过形态学操作/CRF/Graph-based-method等对窗口进行合并</li>
+</ol>
+</li>
+</ul>
+<p><a href="http://www.iapr-tc11.org/archive/icdar2011/fileup/PDF/4520a429.pdf" target="_blank" rel="noopener noreferrer">Lee et al., 2011</a>; <a href="https://vision.cornell.edu/se3/wp-content/uploads/2014/09/wang_iccv2011.pdf" target="_blank" rel="noopener noreferrer">Wang et al., 2011</a>; <a href="http://www.robotics.stanford.edu/%7Eang/papers/icdar01-TextRecognitionUnsupervisedFeatureLearning.pdf" target="_blank" rel="noopener noreferrer">Coates et al., 2011</a>; <a href="http://ai.stanford.edu/~ang/papers/ICPR12-TextRecognitionConvNeuralNets.pdf" target="_blank" rel="noopener noreferrer">Wang et al., 2012</a></p>
+<h3 id="text-recognition">Text recognition</h3>
+<ul>
+<li>基于特征的方法</li>
+<li>划分子问题
+<ul>
+<li>二值化(text binarization)-&gt;文本行切分(text line segmentation)-&gt;字符划分(character segmentation)-&gt;单字符识别(single character recognition)-&gt;单词校正(word correction)</li>
+</ul>
+</li>
+</ul>
+<p><strong>feature-based:</strong> <a href="http://sunw.csail.mit.edu/2013/papers/Shi_19_SUNw.pdf" target="_blank" rel="noopener noreferrer">Shi et al., 2013</a>; <a href="http://sunw.csail.mit.edu/2014/papers2/20_Yao_SUNw.pdf" target="_blank" rel="noopener noreferrer">Yao et al., 2014</a>; Rodriguez-Serrano et al., <a href="https://pdfs.semanticscholar.org/fb6e/d6acbbca46ff94b9e349f991a8972c58ed28.pdf?_ga=2.69845136.1481050086.1604732797-2022411570.1604732797" target="_blank" rel="noopener noreferrer">2013</a>, <a href="https://link.springer.com/article/10.1007/s11263-014-0793-6" target="_blank" rel="noopener noreferrer">2015</a>; <a href="https://arxiv.org/pdf/1410.5224.pdf" target="_blank" rel="noopener noreferrer">Gordo, 2015</a>; <a href="http://www.cvc.uab.es/~afornes/publi/journals/2014_PAMI_Almazan.pdf" target="_blank" rel="noopener noreferrer">Almazan et al., 2014</a></p>
+<p><strong>text binarization:</strong> <a href="http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=087C9CF34CE27B0EC5FCC19D4BA01BF8?doi=10.1.1.182.198&amp;rep=rep1&amp;type=pdf" target="_blank" rel="noopener noreferrer">Zhiwei et al., 2010</a>; <a href="https://hal.inria.fr/hal-00817972/file/mishra11.pdf" target="_blank" rel="noopener noreferrer">Mishra et al., 2011</a>; <a href="https://www.researchgate.net/publication/220930381_Binarization_of_Color_Characters_in_Scene_Images_Using_k-means_Clustering_and_Support_Vector_Machines" target="_blank" rel="noopener noreferrer">Wakahara and Kita, 2011</a>; <a href="https://www.sciencedirect.com/science/article/abs/pii/S0262885613001339?via%3Dihub" target="_blank" rel="noopener noreferrer">Lee and Kim, 2013</a></p>
+<p><strong>text line segmentation:</strong> <a href="https://ieeexplore.ieee.org/document/1292567/;jsessionid=gzuhwb7_25fOtNJSf9koNuIbIEbq8Bh5b6TCHBvzKE5iwq6fxdwd!747695510" target="_blank" rel="noopener noreferrer">Ye et al., 2003</a></p>
+<p><strong>character segmentation:</strong> <a href="https://www.sciencedirect.com/science/article/abs/pii/S0031320305001251?via%3Dihub" target="_blank" rel="noopener noreferrer">Nomura et al., 2005</a>; <a href="https://www.semanticscholar.org/paper/A-New-Gradient-Based-Character-Segmentation-Method-Shivakumara-Bhowmick/a1cd044f6fe6ffd70ddaadc4df1b8e690a1cb256" target="_blank" rel="noopener noreferrer">Shivakumara et al., 2011</a>; <a href="http://www.cvc.uab.es/icdar2009/papers/3725a011.pdf" target="_blank" rel="noopener noreferrer">Roy et al., 2009</a></p>
+<p><strong>single character recognition:</strong> <a href="https://www.csd.uwo.ca/~oveksler/Courses/Fall2012/CS9840/PossibleStudentPapers/RoadSigns2004.pdf" target="_blank" rel="noopener noreferrer">Chen et al., 2004</a>; <a href="https://pdfs.semanticscholar.org/541d/69fdf97e5ded611ad0dd46f62bb9d2e19a51.pdf?_ga=2.36873376.1481050086.1604732797-2022411570.1604732797" target="_blank" rel="noopener noreferrer">Sheshadri and Divvala, 2012</a></p>
+<p><strong>word correction:</strong> <a href="https://www.ee.columbia.edu/ln/dvmm/publications/03/cvpr03_dongqing.pdf" target="_blank" rel="noopener noreferrer">Zhang and Chang, 2003</a>; <a href="https://www.researchgate.net/publication/220932582_Recognition_of_Screen-Rendered_Text" target="_blank" rel="noopener noreferrer">Wachenfeld et al., 2006</a>; <a href="http://www.bmva.org/bmvc/2012/BMVC/paper127/paper127.pdf" target="_blank" rel="noopener noreferrer">Mishra et al., 2012</a>; <a href="https://eprints.soton.ac.uk/263524/1/ICPR2004_Karatzas.pdf" target="_blank" rel="noopener noreferrer">Karatzas and Antonacopoulos, 2004</a>; <a href="https://weinman.cs.grinnell.edu/pubs/weinman07fast.pdf" target="_blank" rel="noopener noreferrer">Weinman et al., 2007</a></p>
+<h3 id="end-to-end-detectionrecognition">End-to-end (detection+recognition)</h3>
+<ul>
+<li>Wang et al., 2011：nearest-neighbor classifier+HoG</li>
+<li>Neumann and Matas, 2013：decision delay ap- proach+dynamic programming algorithm</li>
+</ul>
+<p><a href="https://vision.cornell.edu/se3/wp-content/uploads/2014/09/wang_iccv2011.pdf" target="_blank" rel="noopener noreferrer">Wang et al., 2011</a>; <a href="http://cmp.felk.cvut.cz/~matas/papers/neumann-2013-multisegmentation-icdar.pdf" target="_blank" rel="noopener noreferrer">Neumann and Matas, 2013</a></p>
+<h2 id="methods-based-on-dl">Methods based on DL</h2>
+<h3 id="text-detection-1">Text detection</h3>
+<ul>
+<li>
+<p>早期尝试</p>
+</li>
+<li>
+<p>基于目标检测的方法</p>
+<ul>
+<li>
+<p>Anchor-based</p>
+<ul>
+<li><a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/download/14202/14295" target="_blank" rel="noopener noreferrer">TextBoxes (Liao et al., 2017)</a>：anchor-based, SSD <a href="https://github.com/MhLiao/TextBoxes" target="_blank" rel="noopener noreferrer">[code]</a></li>
+<li><em><strong><a href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Zhou_EAST_An_Efficient_CVPR_2017_paper.pdf" target="_blank" rel="noopener noreferrer">EAST (Zhou et al., 2017)</a>：anchor-based, u-net, simple pipeline and real-time speed <a href="https://github.com/MhLiao/TextBoxes" target="_blank" rel="noopener noreferrer">[code]</a></strong></em></li>
+</ul>
+</li>
+<li>
+<p>Region proposal</p>
+<ul>
+<li><a href="https://ieeexplore.ieee.org/abstract/document/8323240/" target="_blank" rel="noopener noreferrer">Ma et al., 2017</a>: solve text of arbitrary orientations <a href="https://github.com/mjq11302010044/RRPN" target="_blank" rel="noopener noreferrer">[code]</a></li>
+<li><a href="https://arxiv.org/abs/1711.04249" target="_blank" rel="noopener noreferrer">FEN (Zhang et al., 2018)</a></li>
+</ul>
+</li>
+<li>
+<p>Specific task/case (w/o sub-text)</p>
+<ul>
+<li><a href="http://openaccess.thecvf.com/content_cvpr_2018/papers/Wang_Geometry-Aware_Scene_Text_CVPR_2018_paper.pdf" target="_blank" rel="noopener noreferrer">ITN (Wang et al., 2018)</a>: multi-orientated text <a href="https://github.com/zlmzju/itn" target="_blank" rel="noopener noreferrer">[code]</a></li>
+<li><a href="https://arxiv.org/abs/1904.06535" target="_blank" rel="noopener noreferrer">Zhang et al., 2019</a>: irregular text</li>
+<li><a href="https://arxiv.org/abs/1905.05980" target="_blank" rel="noopener noreferrer">Wang et al., 2019b</a>: irregular text</li>
+</ul>
+</li>
+<li>
+<p>Sub-text components: better flexibility over shapes and aspect ratios of text</p>
+<ol>
+<li>Use NN to predict local attributes or segments</li>
+<li>Post-processing to re-construct text instance</li>
+</ol>
+<ul>
+<li>Pixel level
+<ul>
+<li><a href="https://arxiv.org/abs/1801.01315" target="_blank" rel="noopener noreferrer">PixelLink (Deng et al., 2018)</a> <a href="https://github.com/ZJULearning/pixel_link" target="_blank" rel="noopener noreferrer">[code]</a></li>
+<li><a href="http://openaccess.thecvf.com/content_ICCV_2017/papers/Wu_Self-Organized_Text_Detection_ICCV_2017_paper.pdf" target="_blank" rel="noopener noreferrer">Border learning method (Wu and Natarajan, 2017)</a></li>
+</ul>
+</li>
+<li>Component-level
+<ul>
+<li><em><strong><a href="https://link.springer.com/chapter/10.1007/978-3-319-46484-8_4" target="_blank" rel="noopener noreferrer">CTPN (Tian et al., 2016)</a> <a href="https://github.com/tianzhi0549/CTPN" target="_blank" rel="noopener noreferrer">[code]</a></strong></em></li>
+<li><a href="http://openaccess.thecvf.com/content_cvpr_2017/papers/Shi_Detecting_Oriented_Text_CVPR_2017_paper.pdf" target="_blank" rel="noopener noreferrer">SegLink (Shi et al., 2017a)</a> <a href="https://github.com/bgshih/seglink" target="_blank" rel="noopener noreferrer">[code]</a></li>
+<li><a href="http://openaccess.thecvf.com/content_cvpr_2018/CameraReady/1688.pdf" target="_blank" rel="noopener noreferrer">Corner Localization (Lyu et al., 2018b)</a></li>
+<li><a href="http://openaccess.thecvf.com/content_ECCV_2018/papers/Shangbang_Long_TextSnake_A_Flexible_ECCV_2018_paper.pdf" target="_blank" rel="noopener noreferrer">TextSnake (Long et., 2018)</a></li>
+</ul>
+</li>
+<li>Character-level
+<ul>
+<li><a href="https://arxiv.org/abs/1904.01941" target="_blank" rel="noopener noreferrer">Braek et al., 2019b</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="text-recognition-1">Text recognition</h3>
+<p>
+
+
+
+
+<figure><a class="lightgallery" href="/thumbbox2.html/image-20201107191619556.png" title="fig2" data-thumbnail="/thumbbox2.html/image-20201107191619556.png" data-sub-html="<h2>image-20201107191619556</h2><p>fig2</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="image-20201107191619556.png"
+            data-srcset="/thumbbox2.html/image-20201107191619556.png, image-20201107191619556.png 1.5x, /thumbbox2.html/image-20201107191619556.png 2x"
+            data-sizes="auto"
+            alt="/thumbbox2.html/image-20201107191619556.png" />
+    </a><figcaption class="image-caption">fig2</figcaption>
+    </figure></p>
+<ul>
+<li>
+<p><a href="http://axon.cs.byu.edu/~martinez/classes/778/Papers/p369-graves.pdf" target="_blank" rel="noopener noreferrer">CTC-based (Connectionist Temporal Classification，一种时序分类算法)</a> (CNN+RNN+CTC)</p>
+<ol>
+<li>CNN layer：CNN Encoder提取文本图像特征，形成若干特征序列</li>
+<li>RNN layer：RNN进一步提取文本序列特征</li>
+<li>Transcription layer (CTC loss)：CTC解决字符对齐问题</li>
+</ol>
+<ul>
+<li><em><strong><a href="https://arxiv.org/pdf/1507.05717.pdf" target="_blank" rel="noopener noreferrer">CRNN (Shi et al., 2017b)</a> <a href="https://github.com/bgshih/crnn" target="_blank" rel="noopener noreferrer">[code]</a></strong></em></li>
+<li><a href="https://arxiv.org/pdf/1506.04395.pdf" target="_blank" rel="noopener noreferrer">DTRN (He et al., 2016)</a></li>
+<li><a href="https://arxiv.org/abs/1709.04303" target="_blank" rel="noopener noreferrer">Gao et al., 2017</a></li>
+<li><a href="https://arxiv.org/abs/1709.01727" target="_blank" rel="noopener noreferrer">Yin er al., 2017</a></li>
+</ul>
+</li>
+<li>
+<p>Encoder-Decoder (CNN+Seq2Seq+Attention)</p>
+<ol>
+<li>CNN layer：CNN Encoder提取文本图像特征，形成若干特征序列</li>
+<li>Seq2Seq+Attention：好处是输出向量长度可以与输入不同</li>
+<li>Transcription layer (Classification loss)</li>
+</ol>
+<ul>
+<li><a href="https://arxiv.org/pdf/1603.03101.pdf" target="_blank" rel="noopener noreferrer">Lee and Osindero, 2016</a></li>
+<li><a href="https://arxiv.org/abs/1711.04226" target="_blank" rel="noopener noreferrer">Cheng et al., 2018</a></li>
+<li><a href="https://arxiv.org/pdf/1805.03384.pdf" target="_blank" rel="noopener noreferrer">Bai et al., 2018</a></li>
+<li><a href="https://ren-fengbo.lab.asu.edu/sites/default/files/16354-77074-1-pb.pdf" target="_blank" rel="noopener noreferrer">Liu et al., 2018d</a></li>
+</ul>
+</li>
+<li>
+<p>Irregular text Case</p>
+</li>
+</ul>
+<h3 id="end-to-end-detectionrecognitiontext-spotting">End-to-end (Detection+Recognition/Text Spotting)</h3>
+<ul>
+<li>Two-stage pipeline: feature map instead of images are cropped and fed to recognition module
+<ul>
+<li><em><strong><a href="https://arxiv.org/abs/1712.05404" target="_blank" rel="noopener noreferrer">SEE (Bartz et al., 2017)</a> <a href="https://github.com/Bartzi/see" target="_blank" rel="noopener noreferrer">[code]</a></strong></em></li>
+<li><a href="http://openaccess.thecvf.com/content_ICCV_2017/papers/Busta_Deep_TextSpotter_An_ICCV_2017_paper.pdf" target="_blank" rel="noopener noreferrer">Busta et al., 2017</a> <a href="https://github.com/MichalBusta/DeepTextSpotter" target="_blank" rel="noopener noreferrer">[code]</a></li>
+<li><a href="http://openaccess.thecvf.com/content_ICCV_2017/papers/Li_Towards_End-To-End_Text_ICCV_2017_paper.pdf" target="_blank" rel="noopener noreferrer">Li et al., 2017a</a></li>
+<li><a href="http://openaccess.thecvf.com/content_cvpr_2018/CameraReady/1390.pdf" target="_blank" rel="noopener noreferrer">He et al., 2018</a></li>
+<li><a href="http://openaccess.thecvf.com/content_cvpr_2018/CameraReady/1699.pdf" target="_blank" rel="noopener noreferrer">Liu et al., 2018c</a></li>
+</ul>
+</li>
+<li>One-stage pipeline: predict character and text bounding boxes as well as character type segmentation maps in parallel
+<ul>
+<li><a href="http://openaccess.thecvf.com/content_ICCV_2019/papers/Xing_Convolutional_Character_Networks_ICCV_2019_paper.pdf" target="_blank" rel="noopener noreferrer">Xing et al., 2019</a></li>
+</ul>
+</li>
+</ul>
+<p><img src="/Users/shake/Library/Application Support/typora-user-images/image-20201107222045772.png" alt="image-20201107222045772" align="middle" style="zoom:50%;" /></p>
+<h3 id="auxiliary-techniques-that-support-detection-and-recognition">Auxiliary techniques that support detection and recognition</h3>
+<ul>
+<li>Synthetic Data</li>
+<li>Weakly and Semi-Supervision</li>
+</ul>
+<p><em><strong>More paper reference</strong></em></p>
+<p><a href="https://github.com/Jyouhou/SceneTextPapers">https://github.com/Jyouhou/SceneTextPapers</a></p>
+<h2 id="datasets">Datasets</h2>
+<p>
+
+
+
+
+<figure><a class="lightgallery" href="/thumbbox2.html/image-20201107191949977.png" title="image-20201107191949977" data-thumbnail="/thumbbox2.html/image-20201107191949977.png" data-sub-html="<h2> </h2><p>image-20201107191949977</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="image-20201107191949977.png"
+            data-srcset="/thumbbox2.html/image-20201107191949977.png, image-20201107191949977.png 1.5x, /thumbbox2.html/image-20201107191949977.png 2x"
+            data-sizes="auto"
+            alt="/thumbbox2.html/image-20201107191949977.png" />
+    </a><figcaption class="image-caption">image-20201107191949977</figcaption>
+    </figure></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dataset (Year)</th>
+<th style="text-align:center">Image Num (train/test)</th>
+<th style="text-align:center">Text Num (train/test)</th>
+<th style="text-align:center">Orientation</th>
+<th style="text-align:center">Language</th>
+<th style="text-align:center">Characteristics</th>
+<th style="text-align:center">Detec/Recog Task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">End2End</td>
+<td style="text-align:center">====</td>
+<td style="text-align:center">====</td>
+<td style="text-align:center">====</td>
+<td style="text-align:center">====</td>
+<td style="text-align:center">====</td>
+<td style="text-align:center">====</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.iapr-tc11.org/mediawiki/index.php?title=ICDAR_2003_Robust_Reading_Competitions" target="_blank" rel="noopener noreferrer">ICDAR03 (2003)</a></td>
+<td style="text-align:center">509 (258/251)</td>
+<td style="text-align:center">2276 (1110/1156)</td>
+<td style="text-align:center">Horizontal</td>
+<td style="text-align:center">EN</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✓/✓</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://dagdata.cvc.uab.es/icdar2013competition/" target="_blank" rel="noopener noreferrer">ICDAR13 Scene Text(2013)</a></td>
+<td style="text-align:center">462 (229/233)</td>
+<td style="text-align:center">- (848/1095)</td>
+<td style="text-align:center">Horizontal</td>
+<td style="text-align:center">EN</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✓/✓</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://rrc.cvc.uab.es/?ch=4&amp;com=introduction" target="_blank" rel="noopener noreferrer">ICDAR15 Incidental Text(2015)</a></td>
+<td style="text-align:center">1500 (1000/500)</td>
+<td style="text-align:center">- (-/-)</td>
+<td style="text-align:center">Multi-Oriented</td>
+<td style="text-align:center">EN</td>
+<td style="text-align:center">Blur, Small, Defocused</td>
+<td style="text-align:center">✓/✓</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://rctw.vlrlab.net/dataset/" target="_blank" rel="noopener noreferrer">ICDAR17 / RCTW (2017)</a></td>
+<td style="text-align:center">12263 (8034/4229)</td>
+<td style="text-align:center">- (-/-)</td>
+<td style="text-align:center">Multi-Oriented</td>
+<td style="text-align:center">CN</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✓/✓</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://github.com/cs-chan/Total-Text-Dataset" target="_blank" rel="noopener noreferrer">Total-Text (2017)</a></td>
+<td style="text-align:center">1555 (1255/300)</td>
+<td style="text-align:center">- (-/-)</td>
+<td style="text-align:center">Multi-Oriented,  Curved</td>
+<td style="text-align:center">EN, CN</td>
+<td style="text-align:center">Irregular polygon label</td>
+<td style="text-align:center">✓/✓</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.iapr-tc11.org/mediawiki/index.php?title=The_Street_View_Text_Dataset" target="_blank" rel="noopener noreferrer">SVT (2010)</a></td>
+<td style="text-align:center">350 (100/250)</td>
+<td style="text-align:center">904 (257/647)</td>
+<td style="text-align:center">Horizontal</td>
+<td style="text-align:center">EN</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✓/✓</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.iapr-tc11.org/mediawiki/index.php?title=KAIST_Scene_Text_Database" target="_blank" rel="noopener noreferrer">KAIST (2010)</a></td>
+<td style="text-align:center">3000 (-/-)</td>
+<td style="text-align:center">5000 (-/-)</td>
+<td style="text-align:center">Horizontal</td>
+<td style="text-align:center">EN, KO</td>
+<td style="text-align:center">Distorted</td>
+<td style="text-align:center">✓/✓</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.iapr-tc11.org/mediawiki/index.php?title=NEOCR:_Natural_Environment_OCR_Dataset" target="_blank" rel="noopener noreferrer">NEOCR (2011)</a></td>
+<td style="text-align:center">659 (-/-)</td>
+<td style="text-align:center">5238 (-/-)</td>
+<td style="text-align:center">Multi-oriented</td>
+<td style="text-align:center">8 langs</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✓/✓</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://cs-chan.com/downloads_CUTE80_dataset.html" target="_blank" rel="noopener noreferrer">CUTE (2014)</a> or <a href="https://github.com/Jyouhou/CUTE80" target="_blank" rel="noopener noreferrer">here</a></td>
+<td style="text-align:center">80 (-/80)</td>
+<td style="text-align:center">- (-/-)</td>
+<td style="text-align:center">Curved</td>
+<td style="text-align:center">EN</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✓/✓</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://ctwdataset.github.io" target="_blank" rel="noopener noreferrer">CTW (2017)</a></td>
+<td style="text-align:center">32K ( 25K/6K)</td>
+<td style="text-align:center">1M ( 812K/205K)</td>
+<td style="text-align:center">Multi-Oriented</td>
+<td style="text-align:center">CN</td>
+<td style="text-align:center">Fine-grained annotation</td>
+<td style="text-align:center">✓/✓</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://github.com/Jyouhou/SceneTextPapers/blob/master/datasets/CASIA-10K.md" target="_blank" rel="noopener noreferrer">CASIA-10K (2018)</a></td>
+<td style="text-align:center">10K (7K/3K)</td>
+<td style="text-align:center">- (-/-)</td>
+<td style="text-align:center">Multi-Oriented</td>
+<td style="text-align:center">CN</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓/✓</td>
+</tr>
+<tr>
+<td style="text-align:center">Detection Only</td>
+<td style="text-align:center">====</td>
+<td style="text-align:center">====</td>
+<td style="text-align:center">====</td>
+<td style="text-align:center">====</td>
+<td style="text-align:center">====</td>
+<td style="text-align:center">====</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://media-lab.ccny.cuny.edu/wordpress/cyi/www/project_scenetextdetection.html" target="_blank" rel="noopener noreferrer">OSTD (2011)</a></td>
+<td style="text-align:center">89 (-/-)</td>
+<td style="text-align:center">218 (-/-)</td>
+<td style="text-align:center">Multi-oriented</td>
+<td style="text-align:center">EN</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✓/-</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.iapr-tc11.org/mediawiki/index.php/MSRA_Text_Detection_500_Database_%28MSRA-TD500%29" target="_blank" rel="noopener noreferrer">MSRA-TD500 (2012)</a></td>
+<td style="text-align:center">500 (300/200)</td>
+<td style="text-align:center">1719 (1068/651)</td>
+<td style="text-align:center">Multi-Oriented</td>
+<td style="text-align:center">EN, CN</td>
+<td style="text-align:center">Long text</td>
+<td style="text-align:center">✓/-</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://mclab.eic.hust.edu.cn/UpLoadFiles/dataset/HUST-TR400.zip" target="_blank" rel="noopener noreferrer">HUST-TR400 (2014)</a></td>
+<td style="text-align:center">400 (400/-)</td>
+<td style="text-align:center">- (-/-)</td>
+<td style="text-align:center">Multi-Oriented</td>
+<td style="text-align:center">EN, CN</td>
+<td style="text-align:center">Long text</td>
+<td style="text-align:center">✓/-</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://rrc.cvc.uab.es/?ch=8" target="_blank" rel="noopener noreferrer">ICDAR17 / RRC-MLT (2017)</a></td>
+<td style="text-align:center">18000 (9000/9000)</td>
+<td style="text-align:center">- (-/-)</td>
+<td style="text-align:center">Multi-Oriented</td>
+<td style="text-align:center">9 langs</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✓/-</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://github.com/Yuliang-Liu/Curve-Text-Detector" target="_blank" rel="noopener noreferrer">CTW1500 (2017)</a></td>
+<td style="text-align:center">1500 (1000/500)</td>
+<td style="text-align:center">- (-/-)</td>
+<td style="text-align:center">Multi-Oriented,  Curved</td>
+<td style="text-align:center">EN</td>
+<td style="text-align:center">Bounding box with_14_ vertexes</td>
+<td style="text-align:center">✓/-</td>
+</tr>
+<tr>
+<td style="text-align:center">Recognition Only</td>
+<td style="text-align:center">====</td>
+<td style="text-align:center">====</td>
+<td style="text-align:center">====</td>
+<td style="text-align:center">====</td>
+<td style="text-align:center">====</td>
+<td style="text-align:center">====</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/" target="_blank" rel="noopener noreferrer">Char74k (2009)</a></td>
+<td style="text-align:center">74107 (-/-)</td>
+<td style="text-align:center">74107 (-/-)</td>
+<td style="text-align:center">Horizontal</td>
+<td style="text-align:center">EN, Kannada</td>
+<td style="text-align:center">Character label</td>
+<td style="text-align:center">-/✓</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://cvit.iiit.ac.in/projects/SceneTextUnderstanding/IIIT5K.html" target="_blank" rel="noopener noreferrer">IIIT 5K-Word (2012)</a></td>
+<td style="text-align:center">5000 (-/-)</td>
+<td style="text-align:center">5000 (2000/3000)</td>
+<td style="text-align:center">Horizontal</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">cropped</td>
+<td style="text-align:center">-/✓</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.iapr-tc11.org/mediawiki/index.php?title=The_Street_View_House_Numbers_%28SVHN%29_Dataset" target="_blank" rel="noopener noreferrer">SVHN (2010)</a></td>
+<td style="text-align:center">- (-/-)</td>
+<td style="text-align:center">600000 (-/-)</td>
+<td style="text-align:center">Horizontal</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">House number digits</td>
+<td style="text-align:center">-/✓</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://github.com/Jyouhou/SceneTextPapers/blob/master/datasets/svt-p.zip" target="_blank" rel="noopener noreferrer">SVTP (2013)</a></td>
+<td style="text-align:center">639 (-/639)</td>
+<td style="text-align:center">- (-/-)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">EN</td>
+<td style="text-align:center">Distorted</td>
+<td style="text-align:center">-/✓</td>
+</tr>
+</tbody>
+</table>
+<h2 id="evaluation">Evaluation</h2>
+<h3 id="detection-metrics">Detection Metrics</h3>
+<ul>
+<li><strong>Precision ($P$):</strong> the proportion of predicted text instances that can be matched to gt labels.</li>
+<li><strong>Recall ($R$):</strong> the porportion of gt labels that have correspondents in the predicted list.</li>
+<li><strong>F1-Score</strong></li>
+</ul>
+<p>$$
+F_1 = \frac{2PR}{P+R}</p>
+<p>$$</p>
+<ul>
+<li>And others</li>
+</ul>
+<h3 id="recognition-metrics">Recognition Metrics</h3>
+<p>Character-level(#characters are recognized)/word level(whether the predicted word exactly the same as gt)</p>
+<p>
+
+
+
+
+<figure><a class="lightgallery" href="/thumbbox2.html/image-20201108160251229.png" title="image-20201108160251229" data-thumbnail="/thumbbox2.html/image-20201108160251229.png" data-sub-html="<h2> </h2><p>image-20201108160251229</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="image-20201108160251229.png"
+            data-srcset="/thumbbox2.html/image-20201108160251229.png, image-20201108160251229.png 1.5x, /thumbbox2.html/image-20201108160251229.png 2x"
+            data-sizes="auto"
+            alt="/thumbbox2.html/image-20201108160251229.png" />
+    </a><figcaption class="image-caption">image-20201108160251229</figcaption>
+    </figure></p>
+<h2 id="applications">Applications</h2>
+<ul>
+<li>Automatic Data Entry</li>
+<li>Identity Authentication</li>
+<li>Augmented Computer Vision</li>
+<li>Intelligence Content Analysis</li>
+</ul>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/43534801" target="_blank" rel="noopener noreferrer">CRNN+CTC文字识别</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/34757009" target="_blank" rel="noopener noreferrer">CTPN原理与实现</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/51383402" target="_blank" rel="noopener noreferrer">完全解析RNN, Seq2Seq, Attention注意力机制</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-01-23</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/thumbbox2.html/index.md" target="_blank" rel="noopener noreferrer">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://shakex.github.io/thumbbox2.html/" data-title="拇指盒｜旷视文本检测与识别综述笔记" data-hashtags="computer vision,ocr,paper"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://shakex.github.io/thumbbox2.html/" data-hashtag="computer vision"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://shakex.github.io/thumbbox2.html/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://shakex.github.io/thumbbox2.html/" data-title="拇指盒｜旷视文本检测与识别综述笔记"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://shakex.github.io/thumbbox2.html/" data-title="拇指盒｜旷视文本检测与识别综述笔记" data-ralateuid="shake1110"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/computer-vision/">computer vision</a>,&nbsp;<a href="/tags/ocr/">ocr</a>,&nbsp;<a href="/tags/paper/">paper</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/thumbbox1.html/" class="prev" rel="prev" title="拇指盒｜人类简史，一些有趣的观点（其一）"><i class="fas fa-angle-left fa-fw"></i>拇指盒｜人类简史，一些有趣的观点（其一）</a>
+            <a href="/thumbbox2.html/" class="next" rel="next" title="拇指盒｜旷视文本检测与识别综述笔记">拇指盒｜旷视文本检测与识别综述笔记<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank" rel="noopener noreferrer">shake</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"valine":{"appId":"DpDp52Y2M2hvbaNVVVlm36UW-gzGzoHsz","appKey":"DsVUBKul7XnmLg4QY8qeywWh","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
