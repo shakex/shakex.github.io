@@ -1,0 +1,8 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>文档 - 栏目 - 布丁布瓜</title>
+        <link>https://shakex.github.io/categories/documentation/</link>
+        <description>文档 - 栏目 - 布丁布瓜</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>kxie_shake@outlook.com (shake)</managingEditor>
+            <webMaster>kxie_shake@outlook.com (shake)</webMaster><atom:link href="https://shakex.github.io/categories/documentation/" rel="self" type="application/rss+xml" /></channel>
+</rss>

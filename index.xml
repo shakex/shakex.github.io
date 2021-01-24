@@ -4,40 +4,54 @@
         <link>https://shakex.github.io/</link>
         <description>AI，游戏，摄影，随笔。有关理智与趣味的分享。</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>kxie_shake@outlook.com (shake)</managingEditor>
-            <webMaster>kxie_shake@outlook.com (shake)</webMaster><lastBuildDate>Sun, 24 Jan 2021 02:55:59 &#43;0800</lastBuildDate>
+            <webMaster>kxie_shake@outlook.com (shake)</webMaster><lastBuildDate>Tue, 19 Jan 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://shakex.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>LMSI 2｜UEC food datasets</title>
-    <link>https://shakex.github.io/lmsi2-uec-food.html/</link>
-    <pubDate>Sun, 24 Jan 2021 02:55:59 &#43;0800</pubDate>
+    <title>MIT-Adobe FiveK dataset</title>
+    <link>https://shakex.github.io/lmsi-fivek.html/</link>
+    <pubDate>Tue, 19 Jan 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://shakex.github.io/lmsi2-uec-food.html/</guid>
+    <guid>https://shakex.github.io/lmsi-fivek.html/</guid>
+    <description><![CDATA[针对同一张照片，可以有不同的后期调色风格。该数据集收集了5000张RAW格式的照片和对应5种调色风格的后期图片，可以被用于针对某一调色风格的学习。]]></description>
+</item><item>
+    <title>Mars32k dataset</title>
+    <link>https://shakex.github.io/lsmi-mars32k.html/</link>
+    <pubDate>Sun, 17 Jan 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://shakex.github.io/lsmi-mars32k.html/</guid>
+    <description><![CDATA[一起来看看从2012年到2018年，好奇者号从火星上带回了什么。]]></description>
+</item><item>
+    <title>UEC food datasets</title>
+    <link>https://shakex.github.io/lmsi-uec-food.html/</link>
+    <pubDate>Sat, 16 Jan 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://shakex.github.io/lmsi-uec-food.html/</guid>
     <description><![CDATA[日本流行美食图片大放送。]]></description>
 </item><item>
-    <title>LMSI 1｜Mut1ny Face Head Segmentation Dataset</title>
-    <link>https://shakex.github.io/lmsi1-mut1ny.html/</link>
-    <pubDate>Sun, 24 Jan 2021 02:11:57 &#43;0800</pubDate>
+    <title>Mut1ny Face Head Segmentation Dataset</title>
+    <link>https://shakex.github.io/lmsi-mut1ny.html/</link>
+    <pubDate>Wed, 13 Jan 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://shakex.github.io/lmsi1-mut1ny.html/</guid>
+    <guid>https://shakex.github.io/lmsi-mut1ny.html/</guid>
     <description><![CDATA[LMSI，2021年连载，收集一些有意思的数据集。]]></description>
 </item><item>
-    <title>拇指盒｜旷视文本检测与识别综述笔记</title>
+    <title>近期的摸鱼拾珠</title>
+    <link>https://shakex.github.io/thumbbox-sundayshare.html/</link>
+    <pubDate>Mon, 11 Jan 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://shakex.github.io/thumbbox-sundayshare.html/</guid>
+    <description><![CDATA[新年好呀！我是pudding，年底干掉了两个没日没夜的项目，又可以在白天愉快地摸鱼啦！分享一点这两周炼丹界的新鲜事。]]></description>
+</item><item>
+    <title>旷视文本检测与识别综述笔记</title>
     <link>https://shakex.github.io/thumbbox2.html/</link>
-    <pubDate>Sat, 23 Jan 2021 20:44:08 &#43;0800</pubDate>
+    <pubDate>Tue, 10 Nov 2020 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>https://shakex.github.io/thumbbox2.html/</guid>
     <description><![CDATA[Title：Scene Text Detection and Recognition: The Deep Learning Era [IJCV'20]]]></description>
 </item><item>
-    <title>拇指盒｜旷视文本检测与识别综述笔记</title>
-    <link>https://shakex.github.io/thumbbox2.html/</link>
-    <pubDate>Sat, 23 Jan 2021 20:44:08 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://shakex.github.io/thumbbox2.html/</guid>
-    <description><![CDATA[Title：Scene Text Detection and Recognition: The Deep Learning Era [IJCV'20]]]></description>
-</item><item>
-    <title>拇指盒｜人类简史，一些有趣的观点（其一）</title>
+    <title>人类简史，一些有趣的观点（其一）</title>
     <link>https://shakex.github.io/thumbbox1.html/</link>
-    <pubDate>Sat, 23 Jan 2021 20:43:08 &#43;0800</pubDate>
+    <pubDate>Sun, 11 Oct 2020 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>https://shakex.github.io/thumbbox1.html/</guid>
     <description><![CDATA[最近在读尤瓦尔.赫拉利的《人类简史：从动物到上帝》。书中作者用比较宏观和独到的观点介绍了人类历史进程中的三场重要革命：认知革命（Cognitive Revolution）、农业革命（Agricultural Revolution）和科学革命（Scientific Revolution）。以下摘录并总结一些自己认为有趣的观点。]]></description>
