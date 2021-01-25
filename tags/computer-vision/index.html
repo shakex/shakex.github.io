@@ -14,11 +14,17 @@
 <meta name="twitter:title" content="computer vision"/>
 <meta name="twitter:description" content="AI，游戏，摄影，随笔。有关理智与趣味的分享。"/>
 <meta name="application-name" content="CodeIT">
-<meta name="apple-mobile-web-app-title" content="CodeIT"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="apple-mobile-web-app-title" content="CodeIT"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shakex.github.io/tags/computer-vision/" /><link rel="alternate" href="/tags/computer-vision/index.xml" type="application/rss+xml" title="布丁布瓜">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#ffc40d">
+        <meta name="theme-color" content="#ffffff"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shakex.github.io/tags/computer-vision/" /><link rel="alternate" href="/tags/computer-vision/index.xml" type="application/rss+xml" title="布丁布瓜">
     <link rel="feed" href="/tags/computer-vision/index.xml" type="application/rss+xml" title="布丁布瓜"><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"></head>
-    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body header-desktop="auto" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -101,7 +107,20 @@
                         <span class="archive-item-date">11-10</span>
                     </article></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank" rel="noopener noreferrer">shake</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank" rel="noopener noreferrer">shake</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span id="timeDate"> | <a href="https://mp.weixin.qq.com/s/4Vr5vI8-5xKjcPpwZIZzAQ" target="_blank" rel="noopener noreferrer">第 time 天</a>&nbsp;&nbsp;</span>
+                
+                <script>
+                    var now = new Date();
+                    function createtime() {
+                        var start_time= new Date("01/23/2021 00:00:00");
+                        now.setTime(now.getTime()+250);
+                        days = (now - start_time ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+                        var worktime = document.getElementById("timeDate").innerHTML.replace(/time/, Math.floor(days));
+                        document.getElementById("timeDate").innerHTML = worktime ;
+                    }
+                    createtime();
+                </script>
+            </div>
         </div>
     </footer></div>
 

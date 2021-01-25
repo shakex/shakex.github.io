@@ -189,7 +189,6 @@ https://github.com/Jyouhou/SceneTextPapers
 
 $$
 F_1 = \frac{2PR}{P+R}
-
 $$
 
 - And others

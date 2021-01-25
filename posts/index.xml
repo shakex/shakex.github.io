@@ -4,7 +4,21 @@
         <link>https://shakex.github.io/posts/</link>
         <description>所有文章 | 布丁布瓜</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>kxie_shake@outlook.com (shake)</managingEditor>
-            <webMaster>kxie_shake@outlook.com (shake)</webMaster><lastBuildDate>Tue, 19 Jan 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://shakex.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>kxie_shake@outlook.com (shake)</webMaster><lastBuildDate>Mon, 25 Jan 2021 19:28:11 &#43;0800</lastBuildDate><atom:link href="https://shakex.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>🔝功能测试页面</title>
+    <link>https://shakex.github.io/test-page.html/</link>
+    <pubDate>Mon, 25 Jan 2021 19:28:11 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://shakex.github.io/test-page.html/</guid>
+    <description><![CDATA[Image Font Awesome <i class="fas fa-campground fa-fw"></i>&nbsp;Music bilibili Typeit]]></description>
+</item><item>
+    <title>小站施工进度自查</title>
+    <link>https://shakex.github.io/blog-build.html/</link>
+    <pubDate>Mon, 25 Jan 2021 19:28:11 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://shakex.github.io/blog-build.html/</guid>
+    <description><![CDATA[清单 初始化，选用Hugo-CodeIT主题 网站信息基础配置，个性化样式（字号、色彩风格等） 添加几篇文章 小站运行天数foot 添加文章置顶标记🔝]]></description>
+</item><item>
     <title>MIT-Adobe FiveK dataset</title>
     <link>https://shakex.github.io/lmsi-fivek.html/</link>
     <pubDate>Tue, 19 Jan 2021 00:00:00 &#43;0000</pubDate>
