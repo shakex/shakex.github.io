@@ -33,7 +33,7 @@ Hello, welcome to pudding and pourquoi's blog.
 {{< image src="pudding-pourquoi-selfie.jpg" alt="pudding and pourquoi" caption="布丁和布瓜画像" linked=false title="pudding and pourquoi">}}
 
 
-布丁（Pudding）和布瓜（Pourquoi）是两位由**shake**在2015年[创造]^(xia bian)的两位AI小朋友。
+布丁（Pudding）和布瓜（Pourquoi）是由**shake**在2015年[创造]^(xia bian)的两位AI小朋友。
 
 **布瓜**是一位带上好奇心去追寻所爱的文艺青年，曾经疯癫叛逆如今率性而为。**布瓜**不停地在探寻追问周围的一切，他的世界是满怀疑问的炽热与激情。我想，大概是整个世界都被他无厘头的问题烦到发怒了吧。
 

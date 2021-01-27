@@ -6,13 +6,13 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title> - 布丁布瓜</title><meta name="description" content="AI，游戏，摄影，随笔。有关理智与趣味的分享。"><meta property="og:title" content="" />
-<meta property="og:description" content="2021.01.26，施工进度自查 初始化，选用Hugo-CodeIT主题 网站信息基础配置，个性化样式（字号、色彩风格等） 添加几篇文章 小站运行" />
+<meta property="og:description" content="2021.01.27，跨站脚本攻击（Cross-Site Scripting, XSS） 参考：https://www.zhihu.com/search?type=" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://shakex.github.io/trend/" />
 <meta property="og:site_name" content="布丁布瓜" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="2021.01.26，施工进度自查 初始化，选用Hugo-CodeIT主题 网站信息基础配置，个性化样式（字号、色彩风格等） 添加几篇文章 小站运行"/>
+<meta name="twitter:description" content="2021.01.27，跨站脚本攻击（Cross-Site Scripting, XSS） 参考：https://www.zhihu.com/search?type="/>
 <meta name="application-name" content="CodeIT">
 <meta name="apple-mobile-web-app-title" content="CodeIT"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c">
 
@@ -22,7 +22,7 @@
         <link rel="manifest" href="/site.webmanifest">
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#ffc40d">
-        <meta name="theme-color" content="#ffffff"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shakex.github.io/trend/" /><link rel="next" href="https://shakex.github.io/about/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <meta name="theme-color" content="#ffffff"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shakex.github.io/trend/" /><link rel="prev" href="https://shakex.github.io/project/" /><link rel="next" href="https://shakex.github.io/about/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -31,7 +31,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/shakex.github.io\/trend\/"
-        },"genre": "page","wordcount":  206 ,
+        },"genre": "page","wordcount":  1171 ,
         "url": "https:\/\/shakex.github.io\/trend\/","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -55,7 +55,7 @@
         title="/images/avatar.png" />布丁布瓜</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/categories/"> 栏目 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item active" href="/trend/"> 动态 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/categories/"> 栏目 </a><a class="menu-item active" href="/trend/"> 动态 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="/wiki/"> wiki </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
                             <i class="fas fa-search fa-fw"></i>
@@ -105,7 +105,7 @@
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         取消
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/categories/" title="">栏目</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="/trend/" title="">动态</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/categories/" title="">栏目</a><a class="menu-item" href="/trend/" title="">动态</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="/wiki/" title="">wiki</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
             </a></div>
     </div>
@@ -117,30 +117,83 @@
     <div id="search-dropdown-mobile"></div>
 </div>
 <main class="main">
-                <div class="container"><div class="page single special"><h1 class="single-title animated pulse faster"></h1><div class="content" id="content"><div class="details admonition info">
+                <div class="container"><div class="page single special"><h1 class="single-title animated pulse faster"></h1><div class="content" id="content"><div class="details admonition quote">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw"></i>2021.01.27，跨站脚本攻击（Cross-Site Scripting, XSS）<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>参考：<a href="https://www.zhihu.com/search?type=content&amp;q=跨站脚本攻击">https://www.zhihu.com/search?type=content&amp;q=跨站脚本攻击</a></p>
+
+<h3 id="跨站脚本攻击-cross-site-scripting-xss">跨站脚本攻击（Cross-Site Scripting, XSS）</h3>
+
+<p>在web页面插入恶意脚本，当用户浏览页面时，促使脚本执行，从而达到攻击目的。XSS的特点就是想尽一切办法在目标网站上执行第三方脚本。</p>
+
+<p><strong>栗子</strong>：原有的网站有个将数据库中的数据显示到页面上的功能，<code>document.write(&quot;data from server&quot;)</code>。但如果服务器没有验证数据类型，直接接受任何数据时，攻击者可以会将<code>&lt;script src='http:bad-script.js'&gt;&lt;/script&gt;</code>当做一个数据写入数据库。当其他用户请求这个数据时，网站原有的脚本就会执行<code>document.write(&quot;&lt;script src='http:bad-script.js'&gt;&lt;/script&gt;&quot;)</code>。这样，便会执行<code>bad-script.js</code>。如果攻击者在这段第三方的脚本中写入恶意脚本，那么普通用户便会受到攻击。</p>
+
+<h4 id="xss的三种类型">XSS的三种类型：</h4>
+
+<ul>
+<li><p>存储型/持久型XSS（Persistent XSS）：注入的脚本永久地存储在目标服务器上，每当受害者向服务器请求此数据时就会重新唤醒攻击脚本；</p></li>
+
+<li><p>反射型XSS（Reflected XSS）：当用受害者被引诱点击一个恶意链接，提交一个伪造的表单，恶意代码便会和正常返回数据一起作为响应发送到受害者的浏览器，从而骗过了浏览器，使之误以为恶意脚本来自可信的服务器，以至于让恶意脚本得以执行。</p></li>
+
+<li><p>DOM型XSS（DOM XSS）：有点类似于存储型 XSS，但存储型 XSS 是将恶意脚本作为数据存储在服务器中，每个调用数据的用户都会受到攻击。但 DOM 型 XSS 则是一个本地的行为，更多是本地更新 DOM 时导致了恶意脚本执行。</p></li>
+</ul>
+
+<h4 id="防御xss攻击的方法">防御XSS攻击的方法：</h4>
+
+<ul>
+<li><p>从客户端和服务器端双重验证所有的输入数据，这一般能阻挡大部分注入的脚本</p></li>
+
+<li><p>对所有的数据进行适当的编码</p></li>
+
+<li><p>设置 HTTP Header： &ldquo;X-XSS-Protection: 1&rdquo;</p></li>
+</ul>
+</div>
+        </div>
+    </div>
+
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>2021.01.27，近期推文计划<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ul class="task-list">
+<li><label><input type="checkbox" disabled class="task-list-item"> EDA，一种文本数据增强方法</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> 卡片校正算法</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> 一个数独算法</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> LMSI栏目下周起恢复推送</label></li>
+</ul>
+</div>
+        </div>
+    </div>
+
+<div class="details admonition info open">
         <div class="details-summary admonition-title">
             <i class="icon fas fa-info-circle fa-fw"></i>2021.01.26，施工进度自查<i class="details-icon fas fa-angle-right fa-fw"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content"><ul>
-<li><i class="far fa-check-square fa-fw"></i> 初始化，选用Hugo-CodeIT主题</li>
-<li><i class="far fa-check-square fa-fw"></i> 网站信息基础配置，个性化样式（字号、色彩风格等）</li>
-<li><i class="far fa-check-square fa-fw"></i> 添加几篇文章</li>
-<li><i class="far fa-check-square fa-fw"></i> 小站运行天数foot</li>
-<li><i class="far fa-check-square fa-fw"></i> 网站Logo</li>
-<li><i class="far fa-check-square fa-fw"></i> 域名申请</li>
-<li><i class="far fa-check-square fa-fw"></i> Netlify部署</li>
-<li><i class="far fa-check-square fa-fw"></i> 新增『动态』栏目</li>
-<li><i class="far fa-square fa-fw"></i> CI/CD工作流</li>
-<li><i class="far fa-square fa-fw"></i> 加载速度优化（CDN加速/图片压缩）</li>
-<li><i class="far fa-square fa-fw"></i> 评论系统及相关组件测试</li>
-<li><i class="far fa-square fa-fw"></i> 添加文章置顶标记🔝</li>
-<li><i class="far fa-square fa-fw"></i> 新增Tiddlerwiki</li>
-<li><i class="far fa-square fa-fw"></i> 几个栏目的Markdown模板</li>
-<li><i class="far fa-square fa-fw"></i> 关于/About页面</li>
-<li><i class="far fa-square fa-fw"></i> 404页面</li>
-<li><i class="far fa-square fa-fw"></i> i18n配置</li>
-<li><i class="far fa-square fa-fw"></i> 新增『相册』栏目</li>
+            <div class="admonition-content"><ul class="task-list">
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 初始化，选用Hugo-CodeIT主题</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 网站信息基础配置，个性化样式（字号、色彩风格等）</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 添加几篇文章</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 小站运行天数foot</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 网站Logo<br /></label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 域名申请</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> Netlify部署</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 新增『动态/Trends』栏目</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 『关于』页面</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> 几个栏目的Markdown模板</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> CI/CD工作流</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> 加载速度优化（CDN加速/图片压缩）</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> 评论系统及相关组件测试</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> 添加文章置顶标记🔝</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> 新增Tiddlywiki</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> 404页面</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> 英文网页支持配置</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> 新增『项目/Project』栏目</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> 新增『相册/Photos』栏目</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> 彩蛋与一个隐藏页面</label></li>
 </ul>
 </div>
         </div>
