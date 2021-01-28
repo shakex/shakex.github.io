@@ -1,15 +1,1 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>历史 - 标签 - 布丁布瓜</title>
-        <link>https://shakex.github.io/tags/%E5%8E%86%E5%8F%B2/</link>
-        <description>历史 - 标签 - 布丁布瓜</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>kxie_shake@outlook.com (shake)</managingEditor>
-            <webMaster>kxie_shake@outlook.com (shake)</webMaster><lastBuildDate>Sun, 11 Oct 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://shakex.github.io/tags/%E5%8E%86%E5%8F%B2/" rel="self" type="application/rss+xml" /><item>
-    <title>人类简史，一些有趣的观点（其一）</title>
-    <link>https://shakex.github.io/thumbbox1.html/</link>
-    <pubDate>Sun, 11 Oct 2020 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://shakex.github.io/thumbbox1.html/</guid>
-    <description><![CDATA[最近在读尤瓦尔.赫拉利的《人类简史：从动物到上帝》。书中作者用比较宏观和独到的观点介绍了人类历史进程中的三场重要革命：认知革命（Cognitive Revolution）、农业革命（Agricultural Revolution）和科学革命（Scientific Revolution）。以下摘录并总结一些自己认为有趣的观点。]]></description>
-</item></channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>历史 - 标签 - 布丁布瓜</title><link>https://shakex.github.io/tags/%E5%8E%86%E5%8F%B2/</link><description>历史 - 标签 - 布丁布瓜</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>kxie_shake@outlook.com (shake)</managingEditor><webMaster>kxie_shake@outlook.com (shake)</webMaster><lastBuildDate>Sun, 11 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://shakex.github.io/tags/%E5%8E%86%E5%8F%B2/" rel="self" type="application/rss+xml"/><item><title>人类简史，一些有趣的观点（其一）</title><link>https://shakex.github.io/thumbbox1.html/</link><pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate><author>作者</author><guid>https://shakex.github.io/thumbbox1.html/</guid><description>最近在读尤瓦尔.赫拉利的《人类简史：从动物到上帝》。书中作者用比较宏观和独到的观点介绍了人类历史进程中的三场重要革命：认知革命（Cognitive Revolution）、农业革命（Agricultural Revolution）和科学革命（Scientific Revolution）。以下摘录并总结一些自己认为有趣的观点。</description></item></channel></rss>
