@@ -1,6 +1,22 @@
 # 
 
 
+{{< admonition type=quote title="2021.01.29，深度学习个人工作站配置清单" open=false >}}
+|硬件| 型号 | 价格 |
+|--- |---|---|
+|主板|1|1|
+| CPU|i7 10700F||
+| 显卡GPU|华硕RTX3090 AD OC 24G|13500|
+| 内存|芝奇幻光戟32G（16x2）|1429|
+| 固态硬盘|三星NVMe 970 EVO 1TB|1049|
+| 机械硬盘|希捷EXOS 6T|1249|
+| 电源|||
+| 散热器||1500|
+| 机箱|海盗船Air540|899|
+| 合计||
+
+{{< /admonition >}}
+
 
 
 {{< admonition type=quote title="2021.01.27，跨站脚本攻击（Cross-Site Scripting, XSS）" open=false >}}
@@ -54,13 +70,15 @@
 - [x] Netlify部署
 - [x] 新增『动态/Trends』栏目
 - [x] 『关于』页面
+- [x] 新增Tiddlywiki
+- [x] CI/CD流水线（typora+actions+pages/netlify）
+- [ ] 新增plausible analytics
 - [ ] 几个栏目的Markdown模板
-- [ ] CI/CD工作流
 - [ ] 加载速度优化（CDN加速/图片压缩）
 - [ ] 评论系统及相关组件测试
 - [ ] 添加文章置顶标记🔝
-- [ ] 新增Tiddlywiki
 - [ ] 404页面
+- [ ] 网站标题字体修改
 - [ ] 英文网页支持配置
 - [ ] 新增『项目/Project』栏目
 - [ ] 新增『相册/Photos』栏目
