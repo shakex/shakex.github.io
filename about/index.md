@@ -10,7 +10,6 @@
 Hello, welcome to pudding and pourquoi's blog.
 {{< /typeit >}}
 
-
 </br>
 
 
@@ -19,7 +18,7 @@ Hello, welcome to pudding and pourquoi's blog.
 
 - 计算机系科研狗变身打工人
 
-- 以前做过[游戏](https://github.com/shakex/My-Spirit)，但很少打联机，独游爱好者
+- 做过[游戏](https://github.com/shakex/My-Spirit)，但很少打联机，独游爱好者
 
 - 近三年以炼丹为主，机器视障
 
