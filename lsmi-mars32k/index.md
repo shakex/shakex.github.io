@@ -14,14 +14,14 @@
 
 |sample data||
 |:-|-|
-![](mars1.webp)|![](mars2.webp)
-![](mars3.webp)|![](mars4.webp)
-![](mars5.webp)|![](mars6.webp)
-![](mars7.webp)|![](mars8.webp)
-![](mars9.webp)|![](mars10.webp)
-![](mars11.webp)|![](mars12.webp)
-![](mars13.webp)|![](mars14.webp)
-![](mars15.webp)|![](mars16.webp)
+![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsr4igpyj30fk0dwjuk.jpg)|![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsr5gd8uj30fk0dwgo9.jpg)
+![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsr6et1oj30fk0dwgmu.jpg)|![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsr75wmjj30fk0dwdic.jpg)
+![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsr8cquyj30fk0dwdh6.jpg)|![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsr97ne0j30fk0dwgol.jpg)
+![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsra3z72j30fk0dwweq.jpg)|![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsrbk772j30fk0dwgnj.jpg)
+![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsrcgq39j30fk0dwdi4.jpg)|![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsrdgcxdj30fk0dw76e.jpg)
+![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsrduiuhj30fk0dwtbv.jpg)|![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsrfu3orj30fk0dw40x.jpg)
+![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsri4z48j30fk0dwwfu.jpg)|![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsrj1ax8j30fk0dwgmu.jpg)
+![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsrkx8p8j30fk0dwjtu.jpg)|![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsrlwk3jj30fk0dwq61.jpg)
 
 This dataset consists of about 32,000 color images collected by the Curiosity rover on Mars between August 2012 and November 2018. The images show various geographical and geological features of Mars such as mountains and valleys, craters, dunes and rocky terrain. All images have been scaled down using linear interpolation to 560x500px (some images have been cropped). The dataset is intended for unsupervised learning and the images are only labeled with the date they were taken on. This dataset only contains photos taken with Curiosity's Mastcam camera and all grayscale or other images were removed.
 

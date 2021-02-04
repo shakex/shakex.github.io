@@ -20,7 +20,7 @@ This new arrangement of the dataset contains over 16.5k (16557) fully pixel-leve
 
 ### 目录
 
-![](dir.webp)
+![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsr1hut5j30ju0fj425.jpg)
 
 
 ### 真值（~/labels）

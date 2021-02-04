@@ -150,7 +150,7 @@ https://github.com/Jyouhou/SceneTextPapers
 
 ## Datasets
 
-![image-20201107191949977](image-20201107191949977.png)
+![image-20201107191949977](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsqxuyqnj31sc0tqqv6.jpg)
 
 
 | Dataset (Year) | Image Num (train/test) | Text Num (train/test) | Orientation | Language | Characteristics | Detec/Recog Task |
@@ -197,7 +197,7 @@ $$
 
 Character-level(#characters are recognized)/word level(whether the predicted word exactly the same as gt)
 
-![image-20201108160251229](image-20201108160251229.png)
+![image-20201108160251229](https://tva1.sinaimg.cn/large/008eGmZEgy1gnbsqyja11j31920mitf2.jpg)
 
 ## Applications
 

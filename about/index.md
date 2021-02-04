@@ -1,10 +1,9 @@
-# 
+# 关于
 
 
 
 
-{{< image src="joker2.jpg" alt="pudding and pourquoi" linked=false title="pudding and pourquoi">}}
-
+{{< image src="joker2.jpg" width=50% alt="pudding and pourquoi" linked=false title="pudding and pourquoi">}}
 
 {{< typeit code=cpp >}}
 Hello, welcome to pudding and pourquoi's blog.
@@ -24,12 +23,20 @@ Hello, welcome to pudding and pourquoi's blog.
 
 - 摄影入门级选手，相信计算机视觉与图形学会改变摄影的未来；对前沿技术[很有好感]^(dong kan xi kan)，喜欢探索处在交叉边缘的技术
 
-
 </br>
+
+
+
+- 最近尝试在[Tiddly wiki](https://tiddlywiki.com/)上记录一些生活工作的片段/想法💡和随记📒，戳[这里](https://wiki.pudding-pourquoi.com/)
+- 我的简历放在[这里](https://pudding-pourquoi.com/resume)，平时做过的一些实验/作品/项目放在了[项目](https://pudding-pourquoi.com/project)栏目
+
+
+
+
 
 ## 关于『布丁布瓜』
 
-{{< image src="pudding-pourquoi-selfie.jpg" alt="pudding and pourquoi" caption="布丁和布瓜画像" linked=false title="pudding and pourquoi">}}
+{{< image src="pudding-pourquoi-selfie.jpg" width=60% alt="pudding and pourquoi" caption="布丁和布瓜画像" linked=false title="pudding and pourquoi">}}
 
 
 布丁（Pudding）和布瓜（Pourquoi）是由**shake**在2015年[创造]^(xia bian)的两位AI小朋友。
@@ -38,7 +45,7 @@ Hello, welcome to pudding and pourquoi's blog.
 
 **布丁**是一位冷言寡语的理性分析者，内心有着胆小懦弱的一面。**布瓜**口中的那个『手捧仙人掌深夜码代码的直男』。援引某位智者第一次见到**布丁**说过的话：『这家伙冷冷的外表下藏着某种细致不衰的温度』。
 
-
+> 欢迎关注布丁布瓜的公众号（pudding_pourquoi），您也可以通过RSS订阅本站
 
 </br>
 
@@ -48,3 +55,4 @@ kxie_shake@outlook.com
 
 
 
+</br></br></br>
