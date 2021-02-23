@@ -28,7 +28,7 @@ Hello, welcome to pudding and pourquoi's blog.
 
 
 - 最近尝试在[Tiddly wiki](https://tiddlywiki.com/)上记录一些生活工作的片段/想法💡和随记📒，戳[这里](https://wiki.pudding-pourquoi.com/)
-- 我的简历放在[这里](https://pudding-pourquoi.com/resume)，平时做过的一些实验/作品/项目放在了[项目](https://pudding-pourquoi.com/project)栏目
+- 平时做过的一些实验/作品/项目放在了[项目](https://pudding-pourquoi.com/project)栏目
 
 
 
@@ -45,7 +45,7 @@ Hello, welcome to pudding and pourquoi's blog.
 
 **布丁**是一位冷言寡语的理性分析者，内心有着胆小懦弱的一面。**布瓜**口中的那个『手捧仙人掌深夜码代码的直男』。援引某位智者第一次见到**布丁**说过的话：『这家伙冷冷的外表下藏着某种细致不衰的温度』。
 
-> 欢迎关注布丁布瓜的公众号（pudding_pourquoi），您也可以通过RSS订阅本站
+> 欢迎关注布丁布瓜的公众号（pudding_pourquoi）
 
 </br>
 
