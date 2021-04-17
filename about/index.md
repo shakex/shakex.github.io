@@ -3,11 +3,11 @@
 
 
 
-{{< image src="joker2.jpg" width=50% alt="pudding and pourquoi" linked=false title="pudding and pourquoi">}}
+<!-- {{< image src="joker2.jpg" width=50% alt="pudding and pourquoi" linked=false title="pudding and pourquoi">}} -->
 
-{{< typeit code=cpp >}}
+<!-- {{< typeit code=cpp >}}
 Hello, welcome to pudding and pourquoi's blog.
-{{< /typeit >}}
+{{< /typeit >}} -->
 
 </br>
 
@@ -26,10 +26,8 @@ Hello, welcome to pudding and pourquoi's blog.
 </br>
 
 
-
 - 最近尝试在[Tiddly wiki](https://tiddlywiki.com/)上记录一些生活工作的片段/想法💡和随记📒，戳[这里](https://wiki.pudding-pourquoi.com/)
 - 平时做过的一些实验/作品/项目放在了[项目](https://pudding-pourquoi.com/project)栏目
-
 
 
 
